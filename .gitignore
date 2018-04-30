@@ -1,6 +1,25 @@
-# Windows image file caches
+# File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
+
+# Created by https://www.gitignore.io/api/godot,visualstudiocode,windows
+
+### Godot ###
+.import/
+.mono/
+export_presets.cfg
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+
+### Windows ###
+# Windows thumbnail cache files
 Thumbs.db
 ehthumbs.db
+ehthumbs_vista.db
 
 # Folder config file
 Desktop.ini
@@ -17,31 +36,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# =========================
-# Operating System Files
-# =========================
 
-# OSX
-# =========================
+# End of https://www.gitignore.io/api/godot,visualstudiocode,windows
 
-.DS_Store
-.AppleDouble
-.LSOverride
+# Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
