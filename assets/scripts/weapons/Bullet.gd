@@ -16,16 +16,17 @@ func init(dir, speed, damage, life):
     self.life = life
 
 func _process(delta):
-    life -= delta
-    if life < 0:
-        queue_free()
+    if life != null:
+        life -= delta
+        if life < 0:
+            queue_free()
 
-    var velocity = Vector2()
+        var velocity = Vector2()
 
-    velocity.x = cos(direction) * speed
-    velocity.y = sin(direction) * speed
+        velocity.x = cos(direction) * speed
+        velocity.y = sin(direction) * speed
 
-    if velocity.length() > 0:
-        velocity = velocity.normalized() * speed
+        if velocity.length() > 0:
+            velocity = velocity.normalized() * speed
 
-    position += velocity * delta
+        position += velocity * delta

@@ -12,4 +12,8 @@ script = ExtResource( 2 )
 
 texture = ExtResource( 3 )
 
+[node name="Bullet" parent="." index="3"]
+
+visible = false
+
 

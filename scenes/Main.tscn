@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/sprites/spr_pillar_1.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/spr_ruin1_0.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/downwell_0.png" type="Texture" id=10]
+[ext_resource path="res://scenes/weapons/Rail.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Gradient" id=1]
 
@@ -62,7 +63,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Hue Variation" ]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -160,5 +161,9 @@ texture = ExtResource( 9 )
 position = Vector2( 821.856, 480.069 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 10 )
+
+[node name="Rail" parent="." index="4" instance=ExtResource( 11 )]
+
+position = Vector2( 427.189, 471.052 )
 
 

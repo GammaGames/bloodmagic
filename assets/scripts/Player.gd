@@ -26,7 +26,6 @@ func _process(delta):
     else:
         if velocity.length() > 0:
             velocity = velocity.normalized() * SPEED
-            $AnimatedSprite.play()
         else:
             $AnimatedSprite.stop()
 
@@ -50,3 +49,13 @@ func change_weapon(new_weapon):
     weapon = new_weapon
     add_child(weapon)
     new_weapon.position = Vector2(0, 0)
+
+func post_shoot(duration, amplitude, dir):
+    $Particles2D.rotation = dir
+    $Particles2D.emitting = true
+    $Particles2D/Timer.start()
+
+    $Camera2D.shake(0.2, duration, amplitude)
+
+func stop_particles():
+    $Particles2D.emitting = false

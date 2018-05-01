@@ -3,7 +3,7 @@ extends "res://assets/scripts/weapons/BaseWeapon.gd"
 func init():
     cooldown = 0.5
     $Timer.wait_time = cooldown
-    speed = 1000
+    speed = 900
     spread = 30
     spread = 30
     damage = 1
@@ -14,10 +14,10 @@ func shoot(dir):
         var count = randi() % 5 + 10
         var spread_angle = deg2rad(spread / count)
         for i in range(0, count):
-            var bullet = Bullet.instance()
+            var bullet = $Bullet.duplicate()
+            bullet.show()
             bullet.init(dir - (count / 2 - i) * spread_angle, speed * rand_range(0.9, 1), damage, life)
             bullet.global_position = global_position
             $"/root".add_child(bullet)
 
-        $Timer.start()
-        $"../Camera2D".shake(0.3, 32, 8)
+        post_shoot(32, 8, dir)
