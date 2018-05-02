@@ -7,7 +7,7 @@ func init():
     speed = 2000
     spread = 0
     spread = 30
-    damage = 1
+    damage = 5
     life = 2
 
 func shoot(dir):

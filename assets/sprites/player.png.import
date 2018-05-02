@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spr_player_down_0.png-bf062436ee3e11bfecb7edfb6cd76606.stex"
+path="res://.import/player.png-e1eaffe0873063c60a0d0b322e4d87d9.stex"
 
 [deps]
 
-source_file="res://assets/sprites/spr_player_down_0.png"
-source_md5="5b4749335952b7bee9cc619da5cdbf44"
+source_file="res://assets/sprites/player.png"
+source_md5="cf96149ef4069d7e7e612e8ab5c64bcb"
 
-dest_files=[ "res://.import/spr_player_down_0.png-bf062436ee3e11bfecb7edfb6cd76606.stex" ]
-dest_md5="4dd23873527882befd4a2c0fa7c16346"
+dest_files=[ "res://.import/player.png-e1eaffe0873063c60a0d0b322e4d87d9.stex" ]
+dest_md5="9e243f4ddb504feee5b305ae89308614"
 
 [params]
 
@@ -29,4 +29,4 @@ process/HDR_as_SRGB=false
 stream=false
 size_limit=0
 detect_3d=true
-svg/scale=5.0
+svg/scale=1.0

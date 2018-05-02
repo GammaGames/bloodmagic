@@ -3,7 +3,7 @@ extends Area2D
 var cooldown = 0.2
 var speed = 800
 var spread = 5
-var damage = 1
+var damage = 2
 var life = 1
 var player
 

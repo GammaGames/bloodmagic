@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://assets/sprites/spr_ruin1_0.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/downwell_0.png" type="Texture" id=10]
 [ext_resource path="res://scenes/weapons/Rail.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/scripts/enemies/EnemyEye.gd" type="Script" id=12]
+[ext_resource path="res://assets/sprites/spr_eye_0.png" type="Texture" id=13]
 
 [sub_resource type="Gradient" id=1]
 
@@ -63,7 +65,12 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Hue Variation" ]
 
-[node name="Game" type="Node2D"]
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 7.0
+
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -71,6 +78,7 @@ script = ExtResource( 1 )
 
 position = Vector2( 512, 300 )
 scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Material", "Transform" ]
 SPEED = 400
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="2"]
@@ -165,5 +173,29 @@ texture = ExtResource( 10 )
 [node name="Rail" parent="." index="4" instance=ExtResource( 11 )]
 
 position = Vector2( 427.189, 471.052 )
+
+[node name="EnemyEye" type="Area2D" parent="." index="5"]
+
+position = Vector2( 366.759, 119.668 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
+SPEED = 400
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyEye" index="0"]
+
+shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="EnemyEye" index="1"]
+
+texture = ExtResource( 13 )
 
 

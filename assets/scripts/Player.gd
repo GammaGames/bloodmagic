@@ -31,15 +31,26 @@ func _process(delta):
 
         position += velocity * delta
 
-    if velocity.y < 0:
-        $AnimatedSprite.animation = "up"
-    elif velocity.y > 0:
-        $AnimatedSprite.animation = "down"
+    if velocity.y < 0 && velocity.x == 0:
+        if $AnimationPlayer.assigned_animation != "up" or !$AnimationPlayer.is_playing():
+            $AnimationPlayer.play("up")
+    elif velocity.y > 0 && velocity.x == 0:
+        if $AnimationPlayer.assigned_animation != "down" or !$AnimationPlayer.is_playing():
+            $AnimationPlayer.play("down")
+    if velocity.y < 0 && velocity.x != 0:
+        if $AnimationPlayer.assigned_animation != "up_right" or !$AnimationPlayer.is_playing():
+            $AnimationPlayer.play("up_right")
+    elif velocity.y > 0 && velocity.x != 0:
+        if $AnimationPlayer.assigned_animation != "down_right" or !$AnimationPlayer.is_playing():
+            $AnimationPlayer.play("down_right")
     elif velocity.x != 0:
-        $AnimatedSprite.animation = "left"
-        $AnimatedSprite.flip_h = velocity.x > 0
-    else:
-        $AnimatedSprite.animation = "down"
+        if $AnimationPlayer.assigned_animation != "right" or !$AnimationPlayer.is_playing():
+            $AnimationPlayer.play("right")
+    elif velocity.x == 0 && velocity.y == 0:
+        $AnimationPlayer.stop()
+
+    if velocity.x != 0:
+        $Sprite.flip_h = velocity.x < 0
 
 func change_weapon(new_weapon):
     if weapon != null:
