@@ -10,7 +10,7 @@ source_file="res://assets/sprites/spr_wall_0.png"
 source_md5="1c334944764b4fedcccd454b4edbb372"
 
 dest_files=[ "res://.import/spr_wall_0.png-79ca630102d650933284bff0bbfcb400.stex" ]
-dest_md5="ee62abc4b3b645321f51d2120891b2eb"
+dest_md5="7b0d3d88bc5e6725dcbe0c06eb11a0ae"
 
 [params]
 
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
-svg/scale=5.0
+detect_3d=false
+svg/scale=1.0

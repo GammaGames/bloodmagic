@@ -5,11 +5,11 @@ func init():
     $Timer.wait_time = cooldown
     speed = 900
     spread = 30
-    spread = 30
     damage = 1
     life = 0.5
+    cost = 0.3
 
-func shoot(dir):
+func shoot(dir, items):
     if $Timer.time_left == 0:
         var count = randi() % 5 + 10
         var spread_angle = deg2rad(spread / count)
@@ -21,3 +21,6 @@ func shoot(dir):
             $"/root".add_child(bullet)
 
         post_shoot(32, 8, dir)
+        return true
+    else:
+        return false

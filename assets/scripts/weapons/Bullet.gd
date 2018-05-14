@@ -6,6 +6,7 @@ var life
 var damage
 
 func _ready():
+    connect("body_shape_entered", self, "_on_body_shape_entered")
     z_index = -1
 
 func init(dir, speed, damage, life):
@@ -19,7 +20,8 @@ func _process(delta):
     if life != null:
         life -= delta
         if life < 0:
-            queue_free()
+            # queue_free()
+            call_deferred("free")
 
         var velocity = Vector2()
 
@@ -30,3 +32,8 @@ func _process(delta):
             velocity = velocity.normalized() * speed
 
         position += velocity * delta
+
+func _on_body_shape_entered(body_id, body, body_shape, self_shape):
+    print(body.name)
+    if body.has_method("hurt"):
+        pass

@@ -1,23 +1,24 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/scripts/Camera2D.gd" type="Script" id=3]
-[ext_resource path="res://assets/sprites/bokeh.png" type="Texture" id=4]
-[ext_resource path="res://scenes/weapons/BaseWeapon.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/weapons/Shotty.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/sprites/spr_fire_2.png" type="Texture" id=7]
-[ext_resource path="res://assets/sprites/spr_pillar_1.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/spr_ruin1_0.png" type="Texture" id=9]
-[ext_resource path="res://assets/sprites/downwell_0.png" type="Texture" id=10]
-[ext_resource path="res://scenes/weapons/Rail.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/scripts/enemies/EnemyEye.gd" type="Script" id=12]
-[ext_resource path="res://assets/sprites/spr_eye_0.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/particles/bokeh.png" type="Texture" id=4]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/weapons/BaseWeapon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/weapons/Shotty.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/weapons/Rail.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sprites/objects/spr_fire_0.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/objects/spr_pillar_0.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/objects/spr_ruin1_0.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/objects/downwell_0.png" type="Texture" id=12]
+[ext_resource path="res://assets/scripts/enemies/EnemyEye.gd" type="Script" id=13]
+[ext_resource path="res://assets/sprites/enemies/spr_eye_0.png" type="Texture" id=14]
 
 [sub_resource type="Gradient" id=1]
 
-offsets = PoolRealArray( 0, 0.233533, 0.682635, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 0.824219, 0.824219, 0.824219, 0.784314, 0.757813, 0.757813, 0.757813, 0.784314, 1, 1, 1, 0 )
+offsets = PoolRealArray( 0, 0.233533, 0.467456, 0.682635, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 0.824219, 0.824219, 0.824219, 0.784314, 0.784381, 0.784381, 0.784381, 0.453059, 0.757813, 0.757813, 0.757813, 0.784314, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=2]
 
@@ -30,7 +31,7 @@ width = 2048
 render_priority = 0
 trail_divisor = 1
 emission_shape = 2
-emission_box_extents = Vector3( 100, 100, 1 )
+emission_box_extents = Vector3( 200, 200, 1 )
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
@@ -63,7 +64,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Color", "Hue Variation" ]
+_sections_unfolded = [ "Color", "Emission Shape", "Hue Variation" ]
 
 [sub_resource type="CircleShape2D" id=4]
 
@@ -78,8 +79,8 @@ script = ExtResource( 1 )
 
 position = Vector2( 512, 300 )
 scale = Vector2( 0.75, 0.75 )
-_sections_unfolded = [ "Material", "Transform" ]
-SPEED = 400
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "collision" ]
+SPEED = 600
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="2"]
 
@@ -113,8 +114,8 @@ _sections_unfolded = [ "Drag Margin", "Editor", "Material", "Transform", "Visibi
 scale = Vector2( 11, 8 )
 z_index = -5
 emitting = true
-amount = 50
-lifetime = 5.0
+amount = 100
+lifetime = 8.0
 one_shot = false
 preprocess = 0.0
 speed_scale = 1.0
@@ -132,16 +133,29 @@ h_frames = 3
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
 
-[node name="BaseWeapon" parent="." index="1" instance=ExtResource( 5 )]
+[node name="Control" parent="Player/Camera2D" index="1" instance=ExtResource( 5 )]
+
+margin_left = -683.0
+margin_top = -400.0
+margin_right = -683.0
+margin_bottom = -400.0
+
+[node name="Items" type="Node2D" parent="." index="1"]
+
+[node name="BaseWeapon" parent="Items" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 277.008, 289.197 )
 
-[node name="Shotty" parent="." index="2" instance=ExtResource( 6 )]
+[node name="Shotty" parent="Items" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 603, 118 )
 gravity = 98.0
 
-[node name="Objects" type="Node2D" parent="." index="3"]
+[node name="Rail" parent="Items" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 427.189, 471.052 )
+
+[node name="Objects" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
 
@@ -149,33 +163,32 @@ editor/display_folded = true
 
 position = Vector2( 116.458, 446.391 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 
 [node name="spr_pillar_1" type="Sprite" parent="Objects" index="1"]
 
 position = Vector2( 782.703, 99.703 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="spr_ruin1_0" type="Sprite" parent="Objects" index="2"]
 
 position = Vector2( 122.488, 156.982 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
 [node name="downwell_0" type="Sprite" parent="Objects" index="3"]
 
 position = Vector2( 821.856, 480.069 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 
-[node name="Rail" parent="." index="4" instance=ExtResource( 11 )]
+[node name="Enemies" type="Node2D" parent="." index="3"]
 
-position = Vector2( 427.189, 471.052 )
+[node name="EnemyEye" type="Area2D" parent="Enemies" index="0"]
 
-[node name="EnemyEye" type="Area2D" parent="." index="5"]
-
+editor/display_folded = true
 position = Vector2( 366.759, 119.668 )
 scale = Vector2( 4, 4 )
 input_pickable = true
@@ -185,17 +198,17 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Transform" ]
 SPEED = 400
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyEye" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/EnemyEye" index="0"]
 
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="EnemyEye" index="1"]
+[node name="Sprite" type="Sprite" parent="Enemies/EnemyEye" index="1"]
 
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 
 

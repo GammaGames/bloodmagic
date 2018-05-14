@@ -9,8 +9,9 @@ func init():
     spread = 30
     damage = 5
     life = 2
+    cost = 0.25
 
-func shoot(dir):
+func shoot(dir, items):
     if $Timer.time_left == 0:
         var bullet = $Bullet.duplicate()
         bullet.show()
@@ -20,3 +21,6 @@ func shoot(dir):
         $"/root".add_child(bullet)
 
         post_shoot(32, 16, dir)
+        return true
+    else:
+        return false

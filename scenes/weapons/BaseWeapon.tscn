@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/scripts/weapons/BaseWeapon.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/spr_wep_basic_0.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/items/spr_wep_basic_0.png" type="Texture" id=2]
 [ext_resource path="res://scenes/weapons/Bullet.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
