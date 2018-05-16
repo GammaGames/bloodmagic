@@ -1,4 +1,4 @@
-extends "res://assets/scripts/weapons/BaseWeapon.gd"
+extends "res://assets/scripts/engine/BaseWeapon.gd"
 
 func init():
     cooldown = 0.5
@@ -7,7 +7,7 @@ func init():
     spread = 30
     damage = 1
     life = 0.5
-    cost = 0.3
+    cost = 0.1
 
 func shoot(dir, items):
     if $Timer.time_left == 0:

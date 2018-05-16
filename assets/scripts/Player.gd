@@ -1,9 +1,7 @@
-extends KinematicBody2D
+extends 'res://assets/scripts/engine/Entity.gd'
 
-export(int) var SPEED = 600
-export(float, 0, 5) var health = 3
-var target_dir = Vector2(0, 0)
-var sprite_dir = "down"
+const SPEED = 500
+var health = 3.5
 var weapon
 var passive_items = []
 var active_item
@@ -19,7 +17,7 @@ var state = STATES.IDLE
 
 func _ready():
     change_weapon(load("res://scenes/weapons/BaseWeapon.tscn").instance())
-    # change_weapon(load("res://scenes/weapons/Shotty.tscn").instance())
+    update_gui()
 
 func _physics_process(delta):
     controls_loop(delta)
@@ -59,48 +57,24 @@ func controls_loop(delta):
 func idle_loop(delta):
     pass
 
-func movement_loop(delta):
-    var motion = target_dir.normalized() * SPEED
-    move_and_slide(motion, Vector2(0, 0))
-    # position += motion
-
 func shoot_loop(delta):
     if target_dir.length() != 0:
         if weapon.shoot(target_dir.angle(), passive_items):
             health -= weapon.cost
-            print(health)
+            update_gui()
 
-func anim_loop(delta):
-    match target_dir:
-        Vector2(0, -1):
-            sprite_dir = "up"
-        Vector2(0, 1):
-            sprite_dir = "down"
-        Vector2(-1, 0):
-            sprite_dir = "right"
-        Vector2(1, 0):
-            sprite_dir = "right"
-        Vector2(-1, 1):
-            sprite_dir = "down_right"
-        Vector2(1, 1):
-            sprite_dir = "down_right"
-        Vector2(-1, -1):
-            sprite_dir = "up_right"
-        Vector2(1, -1):
-            sprite_dir = "up_right"
-
+# TODO don't override base function
 func anim_switch(anim):
-    if anim == "walk":
-        var new_anim = str(anim, "_", sprite_dir)
-        if $AnimationPlayer.current_animation != new_anim:
-            $AnimationPlayer.play(new_anim)
-            if target_dir.x != 0:
-                $Sprite.flip_h = target_dir.x < 0
-    elif anim == "shoot":
-        anim_switch("walk")
-        $AnimationPlayer.seek(0, true)
-    elif anim == "idle":
-        $AnimationPlayer.stop()
+    var new_anim = str(anim, "_", sprite_dir)
+    match anim:
+        "walk":
+            if $AnimationPlayer.current_animation != new_anim:
+                $AnimationPlayer.play(new_anim)
+        "shoot":
+            anim_switch("walk")
+            $AnimationPlayer.seek(0, true)
+        "idle":
+            $AnimationPlayer.stop()
 
 func change_weapon(new_weapon):
     if weapon != null:
@@ -120,3 +94,6 @@ func post_shoot(duration, amplitude, dir):
 
 func stop_particles():
     $Particles2D.emitting = false
+
+func update_gui():
+    $Gui.set_health(health)

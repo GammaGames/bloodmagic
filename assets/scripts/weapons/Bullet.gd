@@ -34,6 +34,5 @@ func _process(delta):
         position += velocity * delta
 
 func _on_body_shape_entered(body_id, body, body_shape, self_shape):
-    print(body.name)
     if body.has_method("hurt"):
         pass

@@ -5,7 +5,7 @@ var speed = 800
 var spread = 5
 var damage = 2
 var life = 1
-var cost = 0.01
+var cost = 0.08
 var player
 
 func _ready():
