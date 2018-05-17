@@ -1,6 +1,11 @@
 extends 'res://assets/scripts/engine/Entity.gd'
 
-export(int) var SPEED = 400
+var SPEED = 400
+
+onready var player = $"/root/Game/Player"
 
 func _ready():
-    print($Sprite.material.get_shader_param("replacement_color"))
+    $Sprite.material.set_shader_param("shift_amount", randf())
+
+func _physics_process(delta):
+    global_rotation += get_angle_to(player.get_position())

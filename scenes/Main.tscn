@@ -65,7 +65,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation" ]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -175,5 +175,23 @@ texture = ExtResource( 12 )
 [node name="Enemies" type="Node2D" parent="." index="3"]
 
 [node name="Eye" parent="Enemies" index="0" instance=ExtResource( 13 )]
+
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Eye2" parent="Enemies" index="1" instance=ExtResource( 13 )]
+
+position = Vector2( 588, 598 )
+
+[node name="Eye3" parent="Enemies" index="2" instance=ExtResource( 13 )]
+
+position = Vector2( 638, 278 )
+
+[node name="Eye4" parent="Enemies" index="3" instance=ExtResource( 13 )]
+
+position = Vector2( 248, 498 )
+
+[node name="Eye5" parent="Enemies" index="4" instance=ExtResource( 13 )]
+
+position = Vector2( 458, -12 )
 
 
