@@ -176,22 +176,7 @@ texture = ExtResource( 12 )
 
 [node name="Eye" parent="Enemies" index="0" instance=ExtResource( 13 )]
 
+position = Vector2( -2, -2 )
 _sections_unfolded = [ "Material", "Transform" ]
-
-[node name="Eye2" parent="Enemies" index="1" instance=ExtResource( 13 )]
-
-position = Vector2( 588, 598 )
-
-[node name="Eye3" parent="Enemies" index="2" instance=ExtResource( 13 )]
-
-position = Vector2( 638, 278 )
-
-[node name="Eye4" parent="Enemies" index="3" instance=ExtResource( 13 )]
-
-position = Vector2( 248, 498 )
-
-[node name="Eye5" parent="Enemies" index="4" instance=ExtResource( 13 )]
-
-position = Vector2( 458, -12 )
 
 
