@@ -1,11 +1,12 @@
 extends KinematicBody2D
 
-const SPEED = 0
+var speed = 0
+var health = 3
 var target_dir = Vector2(0, 0)
 var sprite_dir = 'down'
 
 func movement_loop(delta):
-    var motion = target_dir.normalized() * SPEED
+    var motion = target_dir.normalized() * speed
     move_and_slide(motion, Vector2(0, 0))
 
 func anim_loop(delta):

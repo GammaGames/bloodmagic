@@ -46,6 +46,6 @@ autostart = false
 [node name="Bullet" parent="." index="3" instance=ExtResource( 3 )]
 
 visible = false
-_sections_unfolded = [ "Pause", "Transform" ]
+_sections_unfolded = [ "Collision", "Pause", "Transform" ]
 
 

@@ -1,7 +1,5 @@
 extends 'res://assets/scripts/engine/Entity.gd'
 
-const SPEED = 500
-var health = 3.5
 var weapon
 var passive_items = []
 var active_item
@@ -16,6 +14,8 @@ enum STATES {
 var state = STATES.IDLE
 
 func _ready():
+    speed = 500
+    health = 3.5
     change_weapon(load("res://scenes/weapons/BaseWeapon.tscn").instance())
     update_gui()
 

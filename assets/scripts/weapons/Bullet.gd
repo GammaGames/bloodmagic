@@ -35,4 +35,5 @@ func _process(delta):
 
 func _on_body_shape_entered(body_id, body, body_shape, self_shape):
     if body.has_method("hurt"):
-        pass
+        print(damage)
+        body.hurt(damage)

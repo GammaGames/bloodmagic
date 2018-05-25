@@ -1,8 +1,9 @@
 extends 'res://assets/scripts/engine/Entity.gd'
 
-const SPEED = 300
-
 onready var player = $"/root/Game/Player"
+
+func _init():
+    speed = 300
 
 func _ready():
     $Sprite.material.set_shader_param("shift_amount", randf())
@@ -14,3 +15,7 @@ func _physics_process(delta):
 
     # var motion = target_dir.normalized() * SPEED
     # move_and_slide(motion, Vector2(0, 0))
+
+func hurt(damage):
+    # health = health - damage
+    print(health)
