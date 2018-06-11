@@ -1,22 +1,20 @@
 extends "res://assets/scripts/engine/BaseWeapon.gd"
 
-
-func init():
+func _init():
     cooldown = 1.5
-    $Timer.wait_time = cooldown
     speed = 2000
     spread = 0
-    spread = 30
+    spread = 3
     damage = 5
+    penetration = 3
     life = 2
     cost = 0.12
 
 func shoot(dir, items):
     if $Timer.time_left == 0:
         var bullet = $Bullet.duplicate()
-        bullet.show()
-        bullet.init(dir - rand_range(-spread, spread), speed * rand_range(0.9, 1), damage, life)
-        bullet.init(dir, speed * rand_range(0.9, 1), damage, life)
+        var spread_angle = deg2rad(spread)
+        bullet.shoot(dir - rand_range(-spread_angle, spread_angle), speed * rand_range(0.9, 1), damage, life, penetration)
         bullet.global_position = global_position
         $"/root".add_child(bullet)
 

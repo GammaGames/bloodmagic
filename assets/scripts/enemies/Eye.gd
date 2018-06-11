@@ -6,7 +6,13 @@ func _init():
     speed = 300
 
 func _ready():
-    $Sprite.material.set_shader_param("shift_amount", randf())
+    var mat = $Sprite.get_material().duplicate()
+    mat.set_shader_param("shift_amount", randf())
+    $Sprite.set_material(mat)
+
+func _process(delta):
+    if health <= 0:
+        die()
 
 func _physics_process(delta):
     global_rotation += get_angle_to(player.get_position())
@@ -17,5 +23,8 @@ func _physics_process(delta):
     # move_and_slide(motion, Vector2(0, 0))
 
 func hurt(damage):
-    # health = health - damage
+    health = health - damage
     print(health)
+
+func die():
+    call_deferred("free")

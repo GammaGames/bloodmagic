@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/scripts/Camera2D.gd" type="Script" id=3]
 [ext_resource path="res://assets/sprites/particles/bokeh.png" type="Texture" id=4]
-[ext_resource path="res://scenes/Gui.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/weapons/BaseWeapon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/weapons/Shotty.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/weapons/Rail.tscn" type="PackedScene" id=8]
@@ -65,7 +65,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation" ]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -138,10 +138,12 @@ position = Vector2( 277.008, 289.197 )
 
 position = Vector2( 603, 118 )
 gravity = 98.0
+collision_mask = 1
 
 [node name="Rail" parent="Items" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 427.189, 471.052 )
+collision_mask = 1
 
 [node name="Objects" type="Node2D" parent="." index="2"]
 
@@ -177,26 +179,26 @@ texture = ExtResource( 12 )
 [node name="Eye" parent="Enemies" index="0" instance=ExtResource( 13 )]
 
 position = Vector2( -2, -2 )
-_sections_unfolded = [ "Material", "Transform" ]
+_sections_unfolded = [ "Collision", "Material", "Transform" ]
 
 [node name="Eye2" parent="Enemies" index="1" instance=ExtResource( 13 )]
 
 position = Vector2( 408, 588 )
-_sections_unfolded = [ "Material", "Transform" ]
+_sections_unfolded = [ "Collision", "Material", "Transform" ]
 
 [node name="Eye3" parent="Enemies" index="2" instance=ExtResource( 13 )]
 
 position = Vector2( 388, 378 )
-_sections_unfolded = [ "Material", "Transform" ]
+_sections_unfolded = [ "Collision", "Material", "Transform" ]
 
 [node name="Eye4" parent="Enemies" index="3" instance=ExtResource( 13 )]
 
 position = Vector2( 308, -272 )
-_sections_unfolded = [ "Material", "Transform" ]
+_sections_unfolded = [ "Collision", "Material", "Transform" ]
 
 [node name="Eye5" parent="Enemies" index="4" instance=ExtResource( 13 )]
 
 position = Vector2( 468, -102 )
-_sections_unfolded = [ "Material", "Transform" ]
+_sections_unfolded = [ "Collision", "Material", "Transform" ]
 
 
