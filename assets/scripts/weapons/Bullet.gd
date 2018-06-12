@@ -23,6 +23,7 @@ func _process(delta):
     if life != null:
         life -= delta
         if life < 0:
+            disable()
             call_deferred("free")
 
         var velocity = Vector2()

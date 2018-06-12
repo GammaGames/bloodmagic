@@ -3,7 +3,7 @@ extends 'res://assets/scripts/engine/Entity.gd'
 onready var player = $"/root/Game/Player"
 
 func _init():
-    speed = 300
+    speed = 250
 
 func _ready():
     var mat = $Sprite.get_material().duplicate()

@@ -63,7 +63,11 @@ func shoot_loop(delta):
             health -= weapon.cost
             update_gui()
 
-# TODO don't override base function
+func heal(item):
+    health += item.amount
+    print(health)
+    update_gui()
+
 func anim_switch(anim):
     var new_anim = str(anim, "_", sprite_dir)
     match anim:

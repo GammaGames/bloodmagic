@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 radius = 6.0
 
-[node name="BaseWeapon" type="Area2D"]
+[node name="BaseWeapon" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -46,6 +46,7 @@ autostart = false
 
 [node name="Bullet" parent="." index="3" instance=ExtResource( 3 )]
 
+visible = false
 _sections_unfolded = [ "Collision", "Pause", "Transform" ]
 
 
