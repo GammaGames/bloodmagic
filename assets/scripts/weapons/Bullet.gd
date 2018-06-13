@@ -7,6 +7,7 @@ var life
 var damage
 
 func _ready():
+    add_to_group("projectile")
     z_index = -1
 
 func shoot(dir, speed, damage, life, penetration):
@@ -39,8 +40,10 @@ func _process(delta):
         call_deferred("free")
 
 func _on_body_shape_entered(body_id, body, body_shape, self_shape):
-    if body.has_method("hurt"):
+    if body.is_in_group("enemy"):
         body.hurt(damage)
+        penetration -= 1
+    if body.is_in_group("world"):
         penetration -= 1
 
 func disable():

@@ -10,6 +10,7 @@ var cost = 0.01
 var player
 
 func _ready():
+    add_to_group("item")
     connect("body_shape_entered", self, "_on_body_shape_entered")
     $Bullet.disable()
     $Timer.wait_time = cooldown

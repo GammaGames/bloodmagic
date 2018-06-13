@@ -14,6 +14,7 @@ enum STATES {
 var state = STATES.IDLE
 
 func _ready():
+    add_to_group("player")
     speed = 500
     health = 3.5
     change_weapon(load("res://scenes/weapons/BaseWeapon.tscn").instance())
@@ -65,7 +66,6 @@ func shoot_loop(delta):
 
 func heal(item):
     health += item.amount
-    print(health)
     update_gui()
 
 func anim_switch(anim):
@@ -100,4 +100,4 @@ func stop_particles():
     $Particles2D.emitting = false
 
 func update_gui():
-    $Gui.set_health(health)
+    $Camera2D/Gui.set_health(health)

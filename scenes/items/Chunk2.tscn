@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/scripts/items/HealingItem.gd" type="Script" id=1]
+[ext_resource path="res://assets/scripts/items/Chunk.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/items/spr_chunk_1.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 8.0
 
-[node name="Chunk" type="Area2D" index="0"]
+[node name="Chunk" type="Area2D"]
 
 scale = Vector2( 3, 3 )
 input_pickable = true

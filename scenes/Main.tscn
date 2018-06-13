@@ -72,13 +72,21 @@ _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation" ]
 
 script = ExtResource( 1 )
 
-[node name="Player" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Overworld" type="Node2D" parent="." index="0"]
 
+[node name="World" type="YSort" parent="." index="1"]
+
+editor/display_folded = true
+sort_enabled = true
+
+[node name="Player" parent="World" index="0" instance=ExtResource( 2 )]
+
+editor/display_folded = true
 position = Vector2( 512, 300 )
 scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "collision" ]
 
-[node name="Camera2D" type="Camera2D" parent="Player" index="2"]
+[node name="Camera2D" type="Camera2D" parent="World/Player" index="2"]
 
 anchor_mode = 1
 rotating = false
@@ -105,7 +113,7 @@ editor_draw_drag_margin = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Material", "Transform", "Visibility", "Z Index" ]
 
-[node name="Particles2D" type="Particles2D" parent="Player/Camera2D" index="0"]
+[node name="Particles2D" type="Particles2D" parent="World/Player/Camera2D" index="0"]
 
 scale = Vector2( 11, 8 )
 z_index = -5
@@ -129,91 +137,85 @@ h_frames = 3
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
 
-[node name="Gui" parent="Player" index="5" instance=ExtResource( 5 )]
+[node name="Gui" parent="World/Player/Camera2D" index="1" instance=ExtResource( 5 )]
 
-[node name="Items" type="Node2D" parent="." index="1"]
-
-[node name="BaseWeapon" parent="Items" index="0" instance=ExtResource( 6 )]
+[node name="BaseWeapon" parent="World" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 277.008, 289.197 )
 
-[node name="Shotty" parent="Items" index="1" instance=ExtResource( 7 )]
+[node name="Shotty" parent="World" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( 603, 118 )
 gravity = 98.0
 collision_mask = 1
 
-[node name="Rail" parent="Items" index="2" instance=ExtResource( 8 )]
+[node name="Rail" parent="World" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( 427.189, 471.052 )
 collision_mask = 1
 
-[node name="Chunk" parent="Items" index="3" instance=ExtResource( 9 )]
+[node name="Chunk" parent="World" index="4" instance=ExtResource( 9 )]
 
 position = Vector2( 520, 640 )
 
-[node name="Chunk2" parent="Items" index="4" instance=ExtResource( 10 )]
+[node name="Chunk2" parent="World" index="5" instance=ExtResource( 10 )]
 
 position = Vector2( 600, 720 )
 
-[node name="Chunk3" parent="Items" index="5" instance=ExtResource( 11 )]
+[node name="Chunk3" parent="World" index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 700, 700 )
 
-[node name="Objects" type="Node2D" parent="." index="2"]
-
-editor/display_folded = true
-
-[node name="spr_fire_2" type="Sprite" parent="Objects" index="0"]
+[node name="spr_fire_2" type="Sprite" parent="World" index="7"]
 
 position = Vector2( 116.458, 446.391 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 12 )
 
-[node name="spr_pillar_1" type="Sprite" parent="Objects" index="1"]
+[node name="spr_pillar_1" type="Sprite" parent="World" index="8"]
 
 position = Vector2( 782.703, 99.703 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 13 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="spr_ruin1_0" type="Sprite" parent="Objects" index="2"]
+[node name="spr_ruin1_0" type="Sprite" parent="World" index="9"]
 
 position = Vector2( 122.488, 156.982 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 14 )
 
-[node name="downwell_0" type="Sprite" parent="Objects" index="3"]
+[node name="downwell_0" type="Sprite" parent="World" index="10"]
 
 position = Vector2( 821.856, 480.069 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 15 )
 
-[node name="Enemies" type="Node2D" parent="." index="3"]
-
-[node name="Eye" parent="Enemies" index="0" instance=ExtResource( 16 )]
+[node name="Eye" parent="World" index="11" instance=ExtResource( 16 )]
 
 position = Vector2( 47.9667, -83.4272 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
-[node name="Eye2" parent="Enemies" index="1" instance=ExtResource( 16 )]
+[node name="Eye2" parent="World" index="12" instance=ExtResource( 16 )]
 
 position = Vector2( 408, 588 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
-[node name="Eye3" parent="Enemies" index="2" instance=ExtResource( 16 )]
+[node name="Eye3" parent="World" index="13" instance=ExtResource( 16 )]
 
 position = Vector2( 232.548, 511.245 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
-[node name="Eye4" parent="Enemies" index="3" instance=ExtResource( 16 )]
+[node name="Eye4" parent="World" index="14" instance=ExtResource( 16 )]
 
 position = Vector2( 308, -272 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
-[node name="Eye5" parent="Enemies" index="4" instance=ExtResource( 16 )]
+[node name="Eye5" parent="World" index="15" instance=ExtResource( 16 )]
 
 position = Vector2( 468, -102 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
+
+[node name="Underworld" type="Node2D" parent="." index="2"]
 
 
