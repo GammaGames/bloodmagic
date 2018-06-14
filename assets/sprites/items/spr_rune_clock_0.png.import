@@ -7,10 +7,7 @@ path="res://.import/spr_rune_clock_0.png-a57b9c2fe321fb3c8d303118fa233810.stex"
 [deps]
 
 source_file="res://assets/sprites/items/spr_rune_clock_0.png"
-source_md5="f1c6774a4220edfcb365d8f7dd6e6889"
-
 dest_files=[ "res://.import/spr_rune_clock_0.png-a57b9c2fe321fb3c8d303118fa233810.stex" ]
-dest_md5="5713511c0b2352b24423f752b3c1013b"
 
 [params]
 

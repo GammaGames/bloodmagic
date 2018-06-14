@@ -7,10 +7,7 @@ path="res://.import/spr_wep_shotgun_0.png-db75be5b5ffa2016dfcdd2acb47ec4fb.stex"
 [deps]
 
 source_file="res://assets/sprites/items/spr_wep_shotgun_0.png"
-source_md5="d6853ba2c5fa0742a4ef50b8e19b1e54"
-
 dest_files=[ "res://.import/spr_wep_shotgun_0.png-db75be5b5ffa2016dfcdd2acb47ec4fb.stex" ]
-dest_md5="1f6225ffd0478a0675535801f3d6f921"
 
 [params]
 

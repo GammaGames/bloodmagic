@@ -25,7 +25,7 @@ func _process(delta):
         life -= delta
         if life < 0:
             disable()
-            call_deferred("free")
+            queue_free()
 
         var velocity = Vector2()
         velocity.x = cos(direction) * speed
@@ -37,7 +37,7 @@ func _process(delta):
 
     if penetration != null and penetration < 0:
         disable()
-        call_deferred("free")
+        queue_free()
 
 func _on_body_shape_entered(body_id, body, body_shape, self_shape):
     if body.is_in_group("enemy"):

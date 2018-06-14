@@ -7,10 +7,7 @@ path="res://.import/spr_pillar_1.png-4018fd4b848d35daf985167b192c3708.stex"
 [deps]
 
 source_file="res://assets/sprites/objects/spr_pillar_1.png"
-source_md5="2d63285053ecb977a6df62e919b1a22f"
-
 dest_files=[ "res://.import/spr_pillar_1.png-4018fd4b848d35daf985167b192c3708.stex" ]
-dest_md5="b2727ec39b186e7d373f9a0fe6b1e1b2"
 
 [params]
 

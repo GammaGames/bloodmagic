@@ -7,10 +7,7 @@ path="res://.import/terrain_0.png-470615948ba4f1290bf355850931c110.stex"
 [deps]
 
 source_file="res://assets/sprites/objects/terrain_0.png"
-source_md5="a8ee8020745eb2b94490ce521bcf789e"
-
 dest_files=[ "res://.import/terrain_0.png-470615948ba4f1290bf355850931c110.stex" ]
-dest_md5="f9cce519af69f15c65374229f2c49c3e"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/spr_wasd_1.png-fc29bc4e75087498b9f3b3699978dcbf.stex"
 [deps]
 
 source_file="res://assets/sprites/player/spr_wasd_1.png"
-source_md5="ed3fdf587f22839edb33a9dfe4e4781b"
-
 dest_files=[ "res://.import/spr_wasd_1.png-fc29bc4e75087498b9f3b3699978dcbf.stex" ]
-dest_md5="6870385df9cfd7287144515759edd829"
 
 [params]
 

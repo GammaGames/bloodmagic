@@ -7,10 +7,7 @@ path="res://.import/spr_splitter_m_0.png-cf55c3862436624c003d1202a6bb7116.stex"
 [deps]
 
 source_file="res://assets/sprites/enemies/spr_splitter_m_0.png"
-source_md5="92effe4744c013bf7df6d99052e4bf0f"
-
 dest_files=[ "res://.import/spr_splitter_m_0.png-cf55c3862436624c003d1202a6bb7116.stex" ]
-dest_md5="fcd2a8947514b126ba32921e50693a34"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/sprite32_1.png-88edf8d096a7c6dc2953da6b246fa210.stex"
 [deps]
 
 source_file="res://assets/sprites/objects/sprite32_1.png"
-source_md5="92c3c49b5cef3dfcff12baeaeabcc207"
-
 dest_files=[ "res://.import/sprite32_1.png-88edf8d096a7c6dc2953da6b246fa210.stex" ]
-dest_md5="6909c5078bba8507257285a3fd5c3b35"
 
 [params]
 

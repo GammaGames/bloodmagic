@@ -7,10 +7,7 @@ path="res://.import/spr_chunk_0.png-f6f072339ceec1f03d146dd91c51f538.stex"
 [deps]
 
 source_file="res://assets/sprites/items/spr_chunk_0.png"
-source_md5="8825ba3b0ce5aa6960767aa650793274"
-
 dest_files=[ "res://.import/spr_chunk_0.png-f6f072339ceec1f03d146dd91c51f538.stex" ]
-dest_md5="012c2d22bcc1f001f71e0a3d8a49240c"
 
 [params]
 

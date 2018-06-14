@@ -7,10 +7,7 @@ path="res://.import/spr_grave_3.png-d88fb25baa9412f7574acf8d30c70002.stex"
 [deps]
 
 source_file="res://assets/sprites/objects/spr_grave_3.png"
-source_md5="5ec1531704cecdf3689eb697ebb56868"
-
 dest_files=[ "res://.import/spr_grave_3.png-d88fb25baa9412f7574acf8d30c70002.stex" ]
-dest_md5="6f5fe78e560b5e1cec14f51bf9ca3e29"
 
 [params]
 

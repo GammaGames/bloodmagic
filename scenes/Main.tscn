@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -12,10 +12,11 @@
 [ext_resource path="res://scenes/items/Chunk2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/items/Chunk3.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/sprites/objects/spr_fire_0.png" type="Texture" id=12]
-[ext_resource path="res://assets/sprites/objects/spr_pillar_0.png" type="Texture" id=13]
-[ext_resource path="res://assets/sprites/objects/spr_ruin1_0.png" type="Texture" id=14]
-[ext_resource path="res://assets/sprites/objects/downwell_0.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/objects/spr_ruin1_0.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/objects/downwell_0.png" type="Texture" id=14]
+[ext_resource path="res://scenes/world/Grave.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/enemies/Eye.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/world/Pillar.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Gradient" id=1]
 
@@ -76,7 +77,6 @@ script = ExtResource( 1 )
 
 [node name="World" type="YSort" parent="." index="1"]
 
-editor/display_folded = true
 sort_enabled = true
 
 [node name="Player" parent="World" index="0" instance=ExtResource( 2 )]
@@ -156,40 +156,38 @@ collision_mask = 1
 
 [node name="Chunk" parent="World" index="4" instance=ExtResource( 9 )]
 
-position = Vector2( 520, 640 )
+position = Vector2( 400, 560 )
 
 [node name="Chunk2" parent="World" index="5" instance=ExtResource( 10 )]
 
-position = Vector2( 600, 720 )
+position = Vector2( 320, 100 )
 
 [node name="Chunk3" parent="World" index="6" instance=ExtResource( 11 )]
 
-position = Vector2( 700, 700 )
+position = Vector2( 560, 550 )
 
 [node name="spr_fire_2" type="Sprite" parent="World" index="7"]
 
 position = Vector2( 116.458, 446.391 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 12 )
-
-[node name="spr_pillar_1" type="Sprite" parent="World" index="8"]
-
-position = Vector2( 782.703, 99.703 )
-scale = Vector2( 5, 5 )
-texture = ExtResource( 13 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="spr_ruin1_0" type="Sprite" parent="World" index="9"]
+[node name="spr_ruin1_0" type="Sprite" parent="World" index="8"]
 
 position = Vector2( 122.488, 156.982 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
 
-[node name="downwell_0" type="Sprite" parent="World" index="10"]
+[node name="downwell_0" type="Sprite" parent="World" index="9"]
 
 position = Vector2( 821.856, 480.069 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
+
+[node name="Grave" parent="World" index="10" instance=ExtResource( 15 )]
+
+position = Vector2( 290, 420 )
 
 [node name="Eye" parent="World" index="11" instance=ExtResource( 16 )]
 
@@ -198,7 +196,7 @@ _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
 [node name="Eye2" parent="World" index="12" instance=ExtResource( 16 )]
 
-position = Vector2( 408, 588 )
+position = Vector2( 280, 680 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
 [node name="Eye3" parent="World" index="13" instance=ExtResource( 16 )]
@@ -215,6 +213,10 @@ _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
 position = Vector2( 468, -102 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
+
+[node name="Grave2" parent="World" index="16" instance=ExtResource( 17 )]
+
+position = Vector2( 770, 230 )
 
 [node name="Underworld" type="Node2D" parent="." index="2"]
 

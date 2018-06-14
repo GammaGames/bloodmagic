@@ -7,10 +7,7 @@ path="res://.import/spr_turret_head_0.png-8b0ac96bf323fde3f3d8f87aa2132dfe.stex"
 [deps]
 
 source_file="res://assets/sprites/enemies/spr_turret_head_0.png"
-source_md5="cdd7699e8bdeb5204e40fcd7b7db6e0f"
-
 dest_files=[ "res://.import/spr_turret_head_0.png-8b0ac96bf323fde3f3d8f87aa2132dfe.stex" ]
-dest_md5="bdf19b6189e7f966dd09991257d0ac38"
 
 [params]
 

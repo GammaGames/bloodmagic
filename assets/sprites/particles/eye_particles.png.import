@@ -7,10 +7,7 @@ path="res://.import/eye_particles.png-b24fd9a44b3deda70f7b2f75a27a0d26.stex"
 [deps]
 
 source_file="res://assets/sprites/particles/eye_particles.png"
-source_md5="8c82f57c494dc678855ae37b853307d6"
-
 dest_files=[ "res://.import/eye_particles.png-b24fd9a44b3deda70f7b2f75a27a0d26.stex" ]
-dest_md5="756b9ae5fdf8eec2b42775fc958849f4"
 
 [params]
 

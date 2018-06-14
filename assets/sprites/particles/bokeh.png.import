@@ -7,10 +7,7 @@ path="res://.import/bokeh.png-84896e131c07a4169ac47d93b6012c77.stex"
 [deps]
 
 source_file="res://assets/sprites/particles/bokeh.png"
-source_md5="c632d35105b50e86751e898f150df54b"
-
 dest_files=[ "res://.import/bokeh.png-84896e131c07a4169ac47d93b6012c77.stex" ]
-dest_md5="fb3e1771833ddd1517c99629429fce66"
 
 [params]
 

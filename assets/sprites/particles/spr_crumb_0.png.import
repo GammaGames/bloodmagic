@@ -7,10 +7,7 @@ path="res://.import/spr_crumb_0.png-53e29d016b1a5d3d69a661c578198786.stex"
 [deps]
 
 source_file="res://assets/sprites/particles/spr_crumb_0.png"
-source_md5="a61c3d15cdece30facbae349be35628a"
-
 dest_files=[ "res://.import/spr_crumb_0.png-53e29d016b1a5d3d69a661c578198786.stex" ]
-dest_md5="9f9142b31e137b799c296f533468cbf9"
 
 [params]
 

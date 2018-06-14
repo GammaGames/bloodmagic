@@ -7,10 +7,7 @@ path="res://.import/spr_trigger_0.png-84af85720a5b4d7870301a49866b2bc5.stex"
 [deps]
 
 source_file="res://assets/sprites/spr_trigger_0.png"
-source_md5="03e7f82b6725a7e387eca2e3ef7986ac"
-
 dest_files=[ "res://.import/spr_trigger_0.png-84af85720a5b4d7870301a49866b2bc5.stex" ]
-dest_md5="26ccfb6b077a4338e9507e85382b42a5"
 
 [params]
 

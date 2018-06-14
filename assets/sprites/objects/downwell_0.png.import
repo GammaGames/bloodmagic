@@ -7,10 +7,7 @@ path="res://.import/downwell_0.png-1d29643a2212e2d4dfccd8d33405a9fc.stex"
 [deps]
 
 source_file="res://assets/sprites/objects/downwell_0.png"
-source_md5="ec05d0035686b647de12f0dd489470ae"
-
 dest_files=[ "res://.import/downwell_0.png-1d29643a2212e2d4dfccd8d33405a9fc.stex" ]
-dest_md5="29649e35cc7df5d4db91f6101602b4ff"
 
 [params]
 

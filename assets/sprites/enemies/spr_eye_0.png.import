@@ -7,10 +7,7 @@ path="res://.import/spr_eye_0.png-0fc85f7aa794e6cf5993c642ecc08b49.stex"
 [deps]
 
 source_file="res://assets/sprites/enemies/spr_eye_0.png"
-source_md5="bf232afabf1a989b0eba32e418a7c869"
-
 dest_files=[ "res://.import/spr_eye_0.png-0fc85f7aa794e6cf5993c642ecc08b49.stex" ]
-dest_md5="2929074a5a777998351198e2d4a1d098"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/spr_pool_1.png-33b9623dcb472c425f2e0af26b09b19e.stex"
 [deps]
 
 source_file="res://assets/sprites/items/spr_pool_1.png"
-source_md5="24c63d59416bfaa4b124a19d11f783f4"
-
 dest_files=[ "res://.import/spr_pool_1.png-33b9623dcb472c425f2e0af26b09b19e.stex" ]
-dest_md5="c3c33eecdc3a93422869e49aa4e20a90"
 
 [params]
 

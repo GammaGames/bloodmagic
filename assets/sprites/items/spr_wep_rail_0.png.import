@@ -7,10 +7,7 @@ path="res://.import/spr_wep_rail_0.png-26ea3711edbf47c0228b624ce3d8443a.stex"
 [deps]
 
 source_file="res://assets/sprites/items/spr_wep_rail_0.png"
-source_md5="53fef4b1c4f37924ef39bbf2eae89430"
-
 dest_files=[ "res://.import/spr_wep_rail_0.png-26ea3711edbf47c0228b624ce3d8443a.stex" ]
-dest_md5="b59bd0149d7979fa92960622841af87d"
 
 [params]
 

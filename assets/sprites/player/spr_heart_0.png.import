@@ -7,10 +7,7 @@ path="res://.import/spr_heart_0.png-3f911fed088556004883c136c788802a.stex"
 [deps]
 
 source_file="res://assets/sprites/player/spr_heart_0.png"
-source_md5="f80aa4c2531cc4610cf6ecf00b9cf0e8"
-
 dest_files=[ "res://.import/spr_heart_0.png-3f911fed088556004883c136c788802a.stex" ]
-dest_md5="d59b7f2e47623af484c7bc44ef2622b7"
 
 [params]
 
