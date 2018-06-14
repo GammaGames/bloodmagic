@@ -7,7 +7,7 @@ var life
 var damage
 
 func _ready():
-    add_to_group("projectile")
+    add_to_group("bullet")
     z_index = -1
 
 func shoot(dir, speed, damage, life, penetration):

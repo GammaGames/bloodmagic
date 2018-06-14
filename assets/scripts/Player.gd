@@ -26,7 +26,6 @@ func _physics_process(delta):
     match state:
         STATES.IDLE:
             idle_loop(delta)
-            pass
         STATES.MOVE:
             movement_loop(delta)
         STATES.SHOOT:

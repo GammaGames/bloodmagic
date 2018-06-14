@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -9,14 +9,12 @@
 [ext_resource path="res://scenes/weapons/Shotty.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/weapons/Rail.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/items/Chunk1.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/items/Chunk2.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/items/Chunk3.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/sprites/objects/spr_fire_0.png" type="Texture" id=12]
-[ext_resource path="res://assets/sprites/objects/spr_ruin1_0.png" type="Texture" id=13]
-[ext_resource path="res://assets/sprites/objects/downwell_0.png" type="Texture" id=14]
-[ext_resource path="res://scenes/world/Grave.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/enemies/Eye.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/world/Pillar.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/sprites/objects/spr_fire_0.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/objects/spr_ruin1_0.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/objects/downwell_0.png" type="Texture" id=12]
+[ext_resource path="res://scenes/world/Grave.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/enemies/Eye.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/world/Pillar.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Gradient" id=1]
 
@@ -158,66 +156,63 @@ collision_mask = 1
 
 position = Vector2( 400, 560 )
 
-[node name="Chunk2" parent="World" index="5" instance=ExtResource( 10 )]
-
-position = Vector2( 320, 100 )
-
-[node name="Chunk3" parent="World" index="6" instance=ExtResource( 11 )]
-
-position = Vector2( 560, 550 )
-
-[node name="spr_fire_2" type="Sprite" parent="World" index="7"]
+[node name="spr_fire_2" type="Sprite" parent="World" index="5"]
 
 position = Vector2( 116.458, 446.391 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 12 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="spr_ruin1_0" type="Sprite" parent="World" index="8"]
+[node name="spr_ruin1_0" type="Sprite" parent="World" index="6"]
 
 position = Vector2( 122.488, 156.982 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 13 )
+texture = ExtResource( 11 )
 
-[node name="downwell_0" type="Sprite" parent="World" index="9"]
+[node name="downwell_0" type="Sprite" parent="World" index="7"]
 
 position = Vector2( 821.856, 480.069 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 14 )
+texture = ExtResource( 12 )
 
-[node name="Grave" parent="World" index="10" instance=ExtResource( 15 )]
+[node name="Grave" parent="World" index="8" instance=ExtResource( 13 )]
 
 position = Vector2( 290, 420 )
 
-[node name="Eye" parent="World" index="11" instance=ExtResource( 16 )]
+[node name="Eye" parent="World" index="9" instance=ExtResource( 14 )]
 
 position = Vector2( 47.9667, -83.4272 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
-[node name="Eye2" parent="World" index="12" instance=ExtResource( 16 )]
+[node name="Eye2" parent="World" index="10" instance=ExtResource( 14 )]
 
 position = Vector2( 280, 680 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
-[node name="Eye3" parent="World" index="13" instance=ExtResource( 16 )]
+[node name="Eye3" parent="World" index="11" instance=ExtResource( 14 )]
 
 position = Vector2( 232.548, 511.245 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
-[node name="Eye4" parent="World" index="14" instance=ExtResource( 16 )]
+[node name="Eye4" parent="World" index="12" instance=ExtResource( 14 )]
 
 position = Vector2( 308, -272 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
-[node name="Eye5" parent="World" index="15" instance=ExtResource( 16 )]
+[node name="Eye5" parent="World" index="13" instance=ExtResource( 14 )]
 
 position = Vector2( 468, -102 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
-[node name="Grave2" parent="World" index="16" instance=ExtResource( 17 )]
+[node name="Grave2" parent="World" index="14" instance=ExtResource( 15 )]
 
 position = Vector2( 770, 230 )
 
 [node name="Underworld" type="Node2D" parent="." index="2"]
+
+position = Vector2( 50, 300 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Node" type="Node" parent="." index="3"]
 
 
