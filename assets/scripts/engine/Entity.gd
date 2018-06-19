@@ -5,8 +5,14 @@ var health = 3
 var target_dir = Vector2(0, 0)
 var sprite_dir = 'down'
 
+var knock_dir = Vector2(0,0)
+
 func movement_loop(delta):
-    var motion = target_dir.normalized() * speed
+    var motion
+    if $Hitstun.time_left == 0:
+        motion = target_dir.normalized() * speed
+    else:
+        motion = knock_dir.normalized() * speed * 1.5
     move_and_slide(motion, Vector2(0, 0))
 
 func anim_loop(delta):

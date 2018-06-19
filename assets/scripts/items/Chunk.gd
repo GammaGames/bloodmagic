@@ -8,10 +8,10 @@ func _init():
 
 func _ready():
     $Sprite.rotation = deg2rad(randf() * 80 - 40)
-    tween_speed()
+    tween()
     connect("area_entered", self, "_on_area_entered")
 
-func tween_speed():
+func tween():
     $Tween.interpolate_property(self, "speed", speed, 0, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
     $Tween.start()
 
@@ -22,14 +22,8 @@ func _physics_process(delta):
         var motion_y = sin(angle) * speed * delta
         global_position += Vector2(motion_x, motion_y)
 
-func _on_body_shape_entered(body_id, body, body_shape, self_shape):
-    if body.is_in_group("player"):
-        body.heal(self)
-        disconnect("body_shape_entered", self, "_on_body_shape_entered")
-        queue_free()
-
 func _on_area_entered(body):
     if body.is_in_group("bullet") and speed < 20:
         dir = rad2deg(body.direction + (randf() * 0.5 - 0.25))
         speed = clamp(body.damage * 100, 100, 300)
-        tween_speed()
+        tween()

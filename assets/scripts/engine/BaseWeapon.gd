@@ -6,7 +6,7 @@ var spread = 5
 var damage = 2
 var penetration = 0
 var life = 1
-var cost = 0.01
+var cost = 0.02
 var player
 
 func _ready():

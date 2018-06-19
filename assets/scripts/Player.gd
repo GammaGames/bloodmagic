@@ -19,6 +19,7 @@ func _ready():
     health = 3.5
     change_weapon(load("res://scenes/weapons/BaseWeapon.tscn").instance())
     update_gui()
+    $ShootParticles/Timer.connect("timeout", self, "stop_particles")
 
 func _physics_process(delta):
     controls_loop(delta)
@@ -47,7 +48,7 @@ func controls_loop(delta):
         state = STATES.SHOOT
         # TODO add shoot animations
         anim_switch("shoot")
-    elif target_dir.length() != 0:
+    elif target_dir.length() != 0 or $Hitstun.time_left != 0:
         state = STATES.MOVE
         anim_switch("walk")
     else:
@@ -65,6 +66,15 @@ func shoot_loop(delta):
 
 func heal(item):
     health += item.amount
+    update_gui()
+
+func hurt(item):
+    knock_dir = transform.origin - item.transform.origin
+    $HurtParticles.rotation = knock_dir.angle() - PI
+    $HurtParticles.restart()
+    $Hitstun.start()
+    $Camera2D.shake(0.2, 10, 10)
+    health -= item.damage
     update_gui()
 
 func anim_switch(anim):
@@ -89,14 +99,14 @@ func change_weapon(new_weapon):
     new_weapon.position = Vector2(0, 0)
 
 func post_shoot(duration, amplitude, dir):
-    $Particles2D.rotation = dir
-    $Particles2D.emitting = true
-    $Particles2D/Timer.start()
+    $ShootParticles.rotation = dir
+    $ShootParticles.emitting = true
+    $ShootParticles/Timer.start()
 
     $Camera2D.shake(0.2, duration, amplitude)
 
 func stop_particles():
-    $Particles2D.emitting = false
+    $ShootParticles.emitting = false
 
 func update_gui():
     $Camera2D/Gui.set_health(health)

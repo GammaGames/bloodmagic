@@ -2,12 +2,14 @@ extends 'res://assets/scripts/engine/Entity.gd'
 
 onready var player = $"/root/Game/World/Player"
 var health_drop_change = 0.7
+var damage = 0.3
 
 func _init():
     speed = 250
 
 func _ready():
     add_to_group("enemy")
+    $Hitbox.connect("body_shape_entered", self, "_on_body_shape_entered")
     var mat = $Sprite.get_material().duplicate()
     mat.set_shader_param("shift_amount", randf())
     $Sprite.set_material(mat)
@@ -20,7 +22,7 @@ func _physics_process(delta):
 
 func hurt(damage):
     health = health - damage
-    $Particles2D.restart()
+    $HurtParticles.restart()
     if randf() < health_drop_change:
         var count = randi() % 3
         for i in range(0, count):
@@ -31,8 +33,15 @@ func hurt(damage):
     if health <= 0:
         die()
 
+func damage(player):
+    return damage
+
+func _on_body_shape_entered(body_id, body, body_shape, area_shape):
+    if body.is_in_group("player"):
+        body.hurt(self)
+
 func die():
     $Sprite.hide()
     $CollisionShape2D.disabled = true
-    $Timer.connect("timeout", self, "queue_free")
-    $Timer.start()
+    $Die.connect("timeout", self, "queue_free")
+    $Die.start()
