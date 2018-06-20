@@ -5,14 +5,14 @@
 [ext_resource path="res://assets/sprites/enemies/spr_eye_0.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/particles/eye_particles.png" type="Texture" id=4]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 
 render_priority = 0
 shader = ExtResource( 2 )
 shader_param/shift_amount = 0.081
 _sections_unfolded = [ "Resource", "shader_param" ]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 7.0
@@ -91,13 +91,13 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-material = SubResource( 2 )
+material = SubResource( 1 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Material" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
@@ -139,12 +139,14 @@ wait_time = 0.5
 one_shot = true
 autostart = false
 
-[node name="Hitstun" type="Timer" parent="." index="5"]
+[node name="Hitstun" type="Tween" parent="." index="5"]
 
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 [node name="Hitbox" type="Area2D" parent="." index="6"]
 

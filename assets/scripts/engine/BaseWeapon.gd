@@ -22,7 +22,7 @@ func shoot(dir, items):
         bullet.shoot(dir - rand_range(-spread_angle, spread_angle), speed * rand_range(0.9, 1), damage, life, penetration)
         bullet.global_position = global_position
         $"/root".add_child(bullet)
-        post_shoot(32, 4, dir)
+        post_shoot(32, 8, dir)
         return true
     else:
         return false

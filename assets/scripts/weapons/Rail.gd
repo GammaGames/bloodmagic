@@ -18,7 +18,7 @@ func shoot(dir, items):
         bullet.global_position = global_position
         $"/root".add_child(bullet)
 
-        post_shoot(32, 16, dir)
+        post_shoot(32, 24, dir)
         return true
     else:
         return false

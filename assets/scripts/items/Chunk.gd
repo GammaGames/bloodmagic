@@ -12,7 +12,7 @@ func _ready():
     connect("area_entered", self, "_on_area_entered")
 
 func tween():
-    $Tween.interpolate_property(self, "speed", speed, 0, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+    $Tween.interpolate_property(self, "speed", speed, 0, 1, Tween.TRANS_QUART, Tween.EASE_OUT)
     $Tween.start()
 
 func _physics_process(delta):

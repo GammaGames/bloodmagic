@@ -8,7 +8,8 @@ var cooldown_item
 enum STATES {
     IDLE,
     MOVE,
-    SHOOT
+    SHOOT,
+    HIT
 }
 
 var state = STATES.IDLE
@@ -20,6 +21,8 @@ func _ready():
     change_weapon(load("res://scenes/weapons/BaseWeapon.tscn").instance())
     update_gui()
     $ShootParticles/Timer.connect("timeout", self, "stop_particles")
+    $Hitstun.connect("tween_started", self, "start_knockback")
+    $Hitstun.connect("tween_completed", self, "end_knockback")
 
 func _physics_process(delta):
     controls_loop(delta)
@@ -31,6 +34,8 @@ func _physics_process(delta):
             movement_loop(delta)
         STATES.SHOOT:
             shoot_loop(delta)
+        STATES.HIT:
+            hit_loop(delta)
 
     anim_loop(delta)
 
@@ -48,7 +53,7 @@ func controls_loop(delta):
         state = STATES.SHOOT
         # TODO add shoot animations
         anim_switch("shoot")
-    elif target_dir.length() != 0 or $Hitstun.time_left != 0:
+    elif target_dir.length() != 0 or hitstun:
         state = STATES.MOVE
         anim_switch("walk")
     else:
@@ -69,13 +74,18 @@ func heal(item):
     update_gui()
 
 func hurt(item):
-    knock_dir = transform.origin - item.transform.origin
-    $HurtParticles.rotation = knock_dir.angle() - PI
-    $HurtParticles.restart()
-    $Hitstun.start()
-    $Camera2D.shake(0.2, 10, 10)
-    health -= item.damage
-    update_gui()
+    if !hitstun:
+        knock_dir = transform.origin - item.transform.origin
+        knock_speed = 1500
+        $HurtParticles.rotation = knock_dir.angle() - PI
+        $HurtParticles.restart()
+
+        $Hitstun.interpolate_property(self, "knock_speed", knock_speed, 250, 0.3, Tween.TRANS_QUART, Tween.EASE_OUT)
+        $Hitstun.start()
+
+        $Camera2D.shake(0.3, 50, 10)
+        health -= item.damage
+        update_gui()
 
 func anim_switch(anim):
     var new_anim = str(anim, "_", sprite_dir)
@@ -110,3 +120,9 @@ func stop_particles():
 
 func update_gui():
     $Camera2D/Gui.set_health(health)
+
+func start_knockback(object, key):
+    hitstun = true
+
+func end_knockback(object, key):
+    hitstun = false
