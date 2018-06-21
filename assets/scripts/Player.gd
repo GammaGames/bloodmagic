@@ -8,8 +8,7 @@ var cooldown_item
 enum STATES {
     IDLE,
     MOVE,
-    SHOOT,
-    HIT
+    SHOOT
 }
 
 var state = STATES.IDLE
@@ -34,9 +33,8 @@ func _physics_process(delta):
             movement_loop(delta)
         STATES.SHOOT:
             shoot_loop(delta)
-        STATES.HIT:
-            hit_loop(delta)
 
+    idle_health_loop(delta)
     anim_loop(delta)
 
 func controls_loop(delta):
@@ -69,6 +67,11 @@ func shoot_loop(delta):
             health -= weapon.cost
             update_gui()
 
+func idle_health_loop(delta):
+    if !hitstun and health < 5:
+        # health += 0.01
+        update_gui()
+
 func heal(item):
     health += item.amount
     update_gui()
@@ -80,11 +83,14 @@ func hurt(item):
         $HurtParticles.rotation = knock_dir.angle() - PI
         $HurtParticles.restart()
 
-        $Hitstun.interpolate_property(self, "knock_speed", knock_speed, 250, 0.3, Tween.TRANS_QUART, Tween.EASE_OUT)
+        $Hitstun.interpolate_property(self, "knock_speed", knock_speed, 200, 0.3, Tween.TRANS_QUART, Tween.EASE_OUT)
         $Hitstun.start()
 
         $Camera2D.shake(0.3, 50, 10)
         health -= item.damage
+        if health < 1.5:
+            Time.slow_motion(0.3)
+
         update_gui()
 
 func anim_switch(anim):
@@ -125,4 +131,5 @@ func start_knockback(object, key):
     hitstun = true
 
 func end_knockback(object, key):
+    knock_speed = 0
     hitstun = false

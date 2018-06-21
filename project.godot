@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 dir="*res://assets/scripts/engine/directions.gd"
+Time="*res://assets/scripts/engine/Time.gd"
 
 [display]
 
