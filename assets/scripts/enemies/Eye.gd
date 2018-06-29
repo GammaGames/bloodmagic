@@ -5,7 +5,7 @@ var health_drop_change = 0.7
 var damage = 0.3
 
 func _init():
-    speed = 250
+    speed = 100
 
 func _ready():
     add_to_group("enemy")
@@ -43,5 +43,7 @@ func _on_body_shape_entered(body_id, body, body_shape, area_shape):
 func die():
     $Sprite.hide()
     $CollisionShape2D.disabled = true
+    $Hitbox.monitorable = false
+    $Hitbox.monitoring = false
     $Die.connect("timeout", self, "queue_free")
     $Die.start()

@@ -2,7 +2,7 @@ extends "res://assets/scripts/engine/BaseWeapon.gd"
 
 func _init():
     cooldown = 0.5
-    speed = 900
+    speed = 250
     spread = 30
     damage = 1
     life = 0.5
@@ -18,7 +18,7 @@ func shoot(dir, items):
             bullet.global_position = global_position
             $"/root".add_child(bullet)
 
-        post_shoot(32, 16, dir)
+        post_shoot(24, 6, dir)
         return true
     else:
         return false

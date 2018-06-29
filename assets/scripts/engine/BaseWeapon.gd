@@ -1,7 +1,7 @@
 extends Area2D
 
 var cooldown = 0.2
-var speed = 800
+var speed = 200
 var spread = 5
 var damage = 2
 var penetration = 0
@@ -22,14 +22,14 @@ func shoot(dir, items):
         bullet.shoot(dir - rand_range(-spread_angle, spread_angle), speed * rand_range(0.9, 1), damage, life, penetration)
         bullet.global_position = global_position
         $"/root".add_child(bullet)
-        post_shoot(32, 8, dir)
+        post_shoot(24, 1, dir)
         return true
     else:
         return false
 
-func post_shoot(duration, amplitude, dir):
+func post_shoot(frequency, amplitude, dir):
     $Timer.start()
-    player.post_shoot(duration, amplitude, dir)
+    player.post_shoot(frequency, amplitude, dir)
 
 func _on_body_shape_entered(body_id, body, body_shape, self_shape):
     if body.name == "Player":

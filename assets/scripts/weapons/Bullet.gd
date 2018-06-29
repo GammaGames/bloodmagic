@@ -48,7 +48,9 @@ func _on_body_shape_entered(body_id, body, body_shape, self_shape):
 
 # TODO? use CollisionShape2D
 func disable():
+    remove_from_group("bullet")
     disconnect("body_shape_entered", self, "_on_body_shape_entered")
 
 func enable():
+    add_to_group("bullet")
     connect("body_shape_entered", self, "_on_body_shape_entered")

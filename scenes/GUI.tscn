@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/scripts/Gui.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/player/spr_heart_1.png" type="Texture" id=2]
 
-[node name="GUI" type="CanvasLayer"]
+[node name="GUI" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -24,6 +24,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Margin", "Rect" ]
 
 [node name="Margin" type="MarginContainer" parent="Control" index="0"]
 
@@ -31,17 +32,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 184.0
-margin_bottom = 8.0
+margin_top = 4.0
+margin_right = -8.0
+margin_bottom = -16.0
+rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "Margin", "Rect" ]
 
 [node name="HBox" type="HBoxContainer" parent="Control/Margin" index="0"]
 
@@ -50,8 +51,8 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
-margin_right = 360.0
-margin_bottom = 100.0
+margin_right = 184.0
+margin_bottom = 88.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -59,6 +60,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
 
 [node name="Grid" type="GridContainer" parent="Control/Margin/HBox" index="0"]
 
@@ -66,8 +68,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 32.0
-margin_bottom = 100.0
+margin_right = 36.0
+margin_bottom = 88.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -75,7 +77,46 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 columns = 10
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Focus", "Hint", "Margin", "Rect" ]
+
+[node name="Heart2" type="TextureRect" parent="Control/Margin/HBox/Grid" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 6
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect", "Visibility" ]
+
+[node name="Heart3" type="TextureRect" parent="Control/Margin/HBox/Grid" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 6
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect", "Visibility" ]
 
 [node name="Progress" type="ProgressBar" parent="Control/Margin/HBox" index="1"]
 
@@ -83,10 +124,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 36.0
-margin_right = 164.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 128, 32 )
+margin_left = 40.0
+margin_right = 104.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 64, 18 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -97,11 +138,11 @@ min_value = 0.0
 max_value = 1.0
 step = 1.0
 page = 0.0
-value = 1.0
+value = 0.4
 exp_edit = false
 rounded = false
 percent_visible = false
-_sections_unfolded = [ "Percent" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 [node name="Hearts" type="Node2D" parent="." index="1"]
 
@@ -114,9 +155,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
+margin_right = 8.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 16, 16 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1

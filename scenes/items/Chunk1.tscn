@@ -10,7 +10,6 @@ radius = 8.0
 
 [node name="Chunk" type="Area2D" index="0"]
 
-scale = Vector2( 3, 3 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

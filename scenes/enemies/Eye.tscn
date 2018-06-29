@@ -81,7 +81,6 @@ radius = 8.0
 
 [node name="Eye" type="KinematicBody2D" index="0"]
 
-scale = Vector2( 4, 4 )
 input_pickable = false
 collision_layer = 4
 collision_mask = 15

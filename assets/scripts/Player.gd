@@ -15,7 +15,7 @@ var state = STATES.IDLE
 
 func _ready():
     add_to_group("player")
-    speed = 500
+    speed = 150
     health = 3.5
     change_weapon(load("res://scenes/weapons/BaseWeapon.tscn").instance())
     update_gui()
@@ -79,14 +79,14 @@ func heal(item):
 func hurt(item):
     if !hitstun:
         knock_dir = transform.origin - item.transform.origin
-        knock_speed = 1500
+        knock_speed = 250
         $HurtParticles.rotation = knock_dir.angle() - PI
         $HurtParticles.restart()
 
         $Hitstun.interpolate_property(self, "knock_speed", knock_speed, 200, 0.3, Tween.TRANS_QUART, Tween.EASE_OUT)
         $Hitstun.start()
 
-        $Camera2D.shake(0.3, 50, 10)
+        $Camera2D.shake(0.3, 15, 5)
         health -= item.damage
         if health < 1.5:
             Time.slow_motion(0.3)
@@ -114,12 +114,12 @@ func change_weapon(new_weapon):
     add_child(weapon)
     new_weapon.position = Vector2(0, 0)
 
-func post_shoot(duration, amplitude, dir):
+func post_shoot(frequency, amplitude, dir):
     $ShootParticles.rotation = dir
     $ShootParticles.emitting = true
     $ShootParticles/Timer.start()
 
-    $Camera2D.shake(0.2, duration, amplitude)
+    $Camera2D.shake(0.2, frequency, amplitude)
 
 func stop_particles():
     $ShootParticles.emitting = false

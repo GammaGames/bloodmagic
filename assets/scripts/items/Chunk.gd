@@ -25,5 +25,5 @@ func _physics_process(delta):
 func _on_area_entered(body):
     if body.is_in_group("bullet") and speed < 20:
         dir = rad2deg(body.direction + (randf() * 0.5 - 0.25))
-        speed = clamp(body.damage * 100, 100, 300)
+        speed = clamp(body.damage * 20, 20, 100)
         tween()

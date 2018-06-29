@@ -9,7 +9,6 @@ func set_health(health):
         var hearts = grid.get_children()
         if base > hearts.size():
             grid.add_child($Hearts/Heart.duplicate())
-            pass
         elif base < hearts.size():
             var to_remove = hearts.back()
             grid.remove_child(to_remove)
