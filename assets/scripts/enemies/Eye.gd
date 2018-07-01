@@ -5,7 +5,7 @@ var health_drop_change = 0.7
 var damage = 0.3
 
 func _init():
-    speed = 100
+    speed = 75
 
 func _ready():
     add_to_group("enemy")

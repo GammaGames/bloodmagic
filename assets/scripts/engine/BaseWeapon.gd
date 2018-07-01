@@ -21,7 +21,7 @@ func shoot(dir, items):
         var spread_angle = deg2rad(spread)
         bullet.shoot(dir - rand_range(-spread_angle, spread_angle), speed * rand_range(0.9, 1), damage, life, penetration)
         bullet.global_position = global_position
-        $"/root".add_child(bullet)
+        $"/root/Game/Overworld".add_child(bullet)
         post_shoot(24, 1, dir)
         return true
     else:

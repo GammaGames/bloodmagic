@@ -6,7 +6,7 @@
 
 custom_solver_bias = 0.0
 radius = 3.0
-height = 7.0
+height = 5.0
 
 [node name="Grave" type="StaticBody2D" index="0"]
 

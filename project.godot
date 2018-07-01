@@ -26,6 +26,7 @@ window/size/height=108
 window/size/test_width=1366
 window/size/test_height=768
 window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [importer_defaults]
 
