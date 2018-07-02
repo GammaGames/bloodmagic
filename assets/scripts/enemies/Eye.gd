@@ -45,5 +45,6 @@ func die():
     $CollisionShape2D.disabled = true
     $Hitbox.monitorable = false
     $Hitbox.monitoring = false
+    $Shadow.visible = false
     $Die.connect("timeout", self, "queue_free")
     $Die.start()

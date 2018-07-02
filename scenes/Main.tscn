@@ -1,20 +1,21 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/tilesets/ground.tres" type="TileSet" id=2]
-[ext_resource path="res://scenes/weapons/BaseWeapon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/weapons/Shotty.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/weapons/Rail.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/items/Chunk1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/world/Torch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sprites/tilesets/isle47.tres" type="TileSet" id=2]
+[ext_resource path="res://assets/sprites/tilesets/ground.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/weapons/BaseWeapon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/weapons/Shotty.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/weapons/Rail.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/items/Chunk1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/world/Well.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/world/Grave.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/enemies/Eye.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/world/Pillar.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/scripts/Camera2D.gd" type="Script" id=13]
-[ext_resource path="res://assets/sprites/particles/bokeh.png" type="Texture" id=14]
-[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/world/Torch.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/enemies/Eye.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/world/Pillar.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/scripts/Camera2D.gd" type="Script" id=14]
+[ext_resource path="res://assets/sprites/particles/bokeh.png" type="Texture" id=15]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Gradient" id=1]
 
@@ -76,10 +77,31 @@ script = ExtResource( 1 )
 position = Vector2( 50, 300 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="TileMap" type="TileMap" parent="Underworld" index="0"]
+[node name="TileMap2" type="TileMap" parent="Underworld" index="0"]
 
 mode = 0
 tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -458762, 0, 8, -458761, 0, 10, -458760, 0, 6, -458759, 0, 196610, -458758, 0, 196610, -458757, 0, 5, -458756, 0, 10, -458755, 0, 11, -393226, 0, 65544, -393225, 0, 131081, -393224, 0, 131083, -393221, 0, 196616, -393220, 0, 131077, -393219, 0, 131083, -327690, 0, 65544, -327689, 0, 131078, -327688, 0, 196619, -327684, 0, 196616, -327683, 0, 131079, -262154, 0, 196616, -262153, 0, 131079, -262147, 0, 65540, -262146, 0, 11, -196617, 0, 131073, -196616, 0, 3, -196611, 0, 131076, -196610, 0, 196619, -131080, 0, 65536, -131077, 0, 8, -131076, 0, 10, -131075, 0, 65543, -65544, 0, 65536, -65541, 0, 65544, -65540, 0, 131081, -65539, 0, 65542, -65538, 0, 11, -8, 0, 65536, -5, 0, 65544, -4, 0, 131078, -3, 0, 196617, -2, 0, 196619, 65528, 0, 65536, 65531, 0, 131076, 65532, 0, 196619, 131064, 0, 131073, 131065, 0, 3, 131067, 0, 65536, 196601, 0, 131073, 196602, 0, 5, 196603, 0, 65543, 262138, 0, 196616, 262139, 0, 196619 )
+_sections_unfolded = [ "Cell", "Collision" ]
+
+[node name="TileMap" type="TileMap" parent="Underworld" index="1"]
+
+mode = 0
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -101,47 +123,47 @@ _sections_unfolded = [ "Cell" ]
 
 sort_enabled = true
 
-[node name="BaseWeapon" parent="World" index="0" instance=ExtResource( 3 )]
+[node name="BaseWeapon" parent="World" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 110, 60 )
 
-[node name="Shotty" parent="World" index="1" instance=ExtResource( 4 )]
+[node name="Shotty" parent="World" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 199.512, 59.018 )
 gravity = 98.0
 collision_mask = 1
 
-[node name="Rail" parent="World" index="2" instance=ExtResource( 5 )]
+[node name="Rail" parent="World" index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 130, 140 )
 collision_mask = 1
 
-[node name="Chunk" parent="World" index="3" instance=ExtResource( 6 )]
+[node name="Chunk" parent="World" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( 79.512, 79.018 )
 
-[node name="Torch" parent="World" index="4" instance=ExtResource( 7 )]
-
-position = Vector2( 70, 140 )
-
-[node name="Well" parent="World" index="5" instance=ExtResource( 8 )]
+[node name="Well" parent="World" index="4" instance=ExtResource( 8 )]
 
 position = Vector2( 210, 150 )
 
-[node name="Grave" parent="World" index="6" instance=ExtResource( 9 )]
+[node name="Grave" parent="World" index="5" instance=ExtResource( 9 )]
 
-position = Vector2( 69.512, 89.018 )
+position = Vector2( 50, 80 )
 
-[node name="Eye" parent="World" index="7" instance=ExtResource( 10 )]
+[node name="Torch" parent="World" index="6" instance=ExtResource( 10 )]
+
+position = Vector2( 70, 140 )
+
+[node name="Eye" parent="World" index="7" instance=ExtResource( 11 )]
 
 position = Vector2( 79.512, 39.018 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
-[node name="Grave2" parent="World" index="8" instance=ExtResource( 11 )]
+[node name="Pillar" parent="World" index="8" instance=ExtResource( 12 )]
 
-position = Vector2( 229.512, 89.018 )
+position = Vector2( 210, 90 )
 
-[node name="Player" parent="World" index="9" instance=ExtResource( 12 )]
+[node name="Player" parent="World" index="9" instance=ExtResource( 13 )]
 
 editor/display_folded = true
 position = Vector2( 70, 150 )
@@ -149,6 +171,7 @@ _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "collis
 
 [node name="Camera2D" type="Camera2D" parent="World/Player" index="2"]
 
+position = Vector2( 0, -10 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -171,7 +194,7 @@ drag_margin_bottom = 0.1
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 _sections_unfolded = [ "Smoothing" ]
 
 [node name="Particles2D" type="Particles2D" parent="World/Player/Camera2D" index="0"]
@@ -192,16 +215,14 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 3 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 normal_map = null
 h_frames = 3
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
 
-[node name="Gui" parent="World/Player/Camera2D" index="1" instance=ExtResource( 15 )]
+[node name="Gui" parent="World/Player/Camera2D" index="1" instance=ExtResource( 16 )]
 
 [node name="Overworld" type="Node2D" parent="." index="2"]
-
-[node name="Node" type="Node" parent="." index="3"]
 
 

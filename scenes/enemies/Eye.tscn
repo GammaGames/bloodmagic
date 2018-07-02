@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/scripts/enemies/Eye.gd" type="Script" id=1]
 [ext_resource path="res://assets/shaders/hue_shift.shader" type="Shader" id=2]
@@ -78,6 +78,12 @@ _sections_unfolded = [ "Angle" ]
 
 custom_solver_bias = 0.0
 radius = 8.0
+
+[sub_resource type="OccluderPolygon2D" id=8]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( 0, -6, 6, 0, 0, 6, -6, 0 )
 
 [node name="Eye" type="KinematicBody2D" index="0"]
 
@@ -163,5 +169,11 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 
 shape = SubResource( 7 )
+
+[node name="Shadow" type="LightOccluder2D" parent="." index="7"]
+
+occluder = SubResource( 8 )
+light_mask = 1
+_sections_unfolded = [ "Visibility" ]
 
 

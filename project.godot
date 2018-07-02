@@ -26,7 +26,8 @@ window/size/height=108
 window/size/test_width=1366
 window/size/test_height=768
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_height"
+window/stretch/aspect="expand"
+window/stretch/shrink=".9"
 
 [importer_defaults]
 
@@ -84,4 +85,5 @@ key_modifier=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_na
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
