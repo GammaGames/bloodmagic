@@ -24,7 +24,7 @@ func _on_button_pressed():
 
 	close_map(map)
 	$Label.text = get_map_string(map)
-
+	set_tilemap(map)
 
 func generate(width, height):
 	var map = []
@@ -58,6 +58,14 @@ func iterate2(map):
 				map[y][x] = space
 			else:
 				map[y][x] = wall
+
+func set_tilemap(map):
+	$TileMap.clear()
+	for y in range(map.size()):
+		for x in range(map[y].size()):
+			if map[y][x] == wall:
+				$TileMap.set_cell(x, y, 0)
+	$TileMap.update_bitmask_region(Vector2(0, 0), Vector2(map[0].size(), map.size()))
 
 func check_surrounding(x, y, ch, map):
 	var count = 0
