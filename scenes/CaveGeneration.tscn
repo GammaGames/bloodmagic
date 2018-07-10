@@ -18,10 +18,13 @@ _sections_unfolded = [ "Extra Spacing", "Settings" ]
 [node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
+width = 33
+height = 18
 rand_chance = 0.4
 
 [node name="Label" type="Label" parent="." index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -89,7 +92,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 196611, 0, 0, 262147, 0, 0, 327682, 0, 0, 327687, 0, 1, 327688, 0, 196610, 327689, 0, 196611, 393217, 0, 1, 393218, 0, 131074, 393219, 0, 3, 393223, 0, 65536, 393226, 0, 0, 458753, 0, 65536, 458755, 0, 131073, 458756, 0, 3, 458759, 0, 65536, 458761, 0, 196609, 458762, 0, 65539, 524289, 0, 0, 524292, 0, 131073, 524293, 0, 196610, 524294, 0, 2, 524295, 0, 131074, 524296, 0, 196611, 524298, 0, 65536, 589827, 0, 0, 589830, 0, 0, 589834, 0, 0, 655362, 0, 196609, 655363, 0, 65539, 655369, 0, 0, 720899, 0, 0, 720905, 0, 0, 786436, 0, 196608, 786440, 0, 0, 851973, 0, 196609, 851974, 0, 196610, 851975, 0, 196610, 851976, 0, 131075 )
+tile_data = PoolIntArray(  )
 _sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="Button" type="Button" parent="." index="2"]
@@ -98,8 +101,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 64.0
-margin_bottom = 16.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 69.0
+margin_bottom = 21.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -115,6 +120,6 @@ group = null
 text = "Generate"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Margin", "Rect", "custom_fonts" ]
 
 

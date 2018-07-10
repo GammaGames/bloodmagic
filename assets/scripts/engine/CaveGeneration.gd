@@ -1,6 +1,8 @@
 extends Node
 
-export var rand_chance = 0.4
+export(int) var width = 33
+export(int) var height = 18
+export(float) var rand_chance = 0.4
 
 var space = ' '
 var wall = '#'
@@ -12,11 +14,11 @@ func _ready():
 	_on_button_pressed()
 
 func _on_button_pressed():
-	var map = generate(60, 30)
+	var map = generate(width, height)
 	var valid = false
 	while !valid:
 		for i in 4:
-			iterate2(map)
+			iterate_empty(map)
 		for i in 3:
 			iterate(map)
 		var m = flood_map(map)
@@ -24,7 +26,7 @@ func _on_button_pressed():
 
 	close_map(map)
 	$Label.text = get_map_string(map)
-	set_tilemap(map)
+	set_tilemap($TileMap, map)
 
 func generate(width, height):
 	var map = []
@@ -50,22 +52,22 @@ func iterate(map):
 			else:
 				map[y][x] = wall
 
-func iterate2(map):
+func iterate_empty(map):
 	var m = clone_map(map)
 	for y in range(map.size()):
 		for x in range(map[y].size()):
-			if check_surrounding2(x, y, wall, m):
+			if check_surrounding_or_empty(x, y, wall, m):
 				map[y][x] = space
 			else:
 				map[y][x] = wall
 
-func set_tilemap(map):
-	$TileMap.clear()
+func set_tilemap(tilemap, map):
+	tilemap.clear()
 	for y in range(map.size()):
 		for x in range(map[y].size()):
 			if map[y][x] == wall:
-				$TileMap.set_cell(x, y, 0)
-	$TileMap.update_bitmask_region(Vector2(0, 0), Vector2(map[0].size(), map.size()))
+				tilemap.set_cell(x, y, 0)
+	tilemap.update_bitmask_region(Vector2(0, 0), Vector2(map[0].size(), map.size()))
 
 func check_surrounding(x, y, ch, map):
 	var count = 0
@@ -78,7 +80,7 @@ func check_surrounding(x, y, ch, map):
 					count += 1
 	return count >= 5
 
-func check_surrounding2(x, y, ch, map):
+func check_surrounding_or_empty(x, y, ch, map):
 	var count = 0
 	for yy in range(-1, 2):
 		for xx in range(-1, 2):
