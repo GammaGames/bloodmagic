@@ -21,6 +21,7 @@ script = ExtResource( 1 )
 width = 33
 height = 18
 rand_chance = 0.4
+tilemap = NodePath("TileMap")
 
 [node name="Label" type="Label" parent="." index="0"]
 

@@ -10,11 +10,10 @@ var f = '.'
 
 func _ready():
 	randomize()
-	$Button.connect("pressed", self, "_on_button_pressed")
-	_on_button_pressed()
+	generate()
 
-func _on_button_pressed():
-	var map = generate(width, height)
+func generate():
+	var map = fill_map(width, height)
 	var valid = false
 	while !valid:
 		for i in 4:
@@ -25,10 +24,9 @@ func _on_button_pressed():
 		valid = check_map(m, f, 0.45)
 
 	close_map(map)
-	$Label.text = get_map_string(map)
-	set_tilemap($TileMap, map)
+	set_tilemap($"../Underworld/CaveTilemap", map)
 
-func generate(width, height):
+func fill_map(width, height):
 	var map = []
 	for y in range(height):
 		var row = []
@@ -62,6 +60,7 @@ func iterate_empty(map):
 				map[y][x] = wall
 
 func set_tilemap(tilemap, map):
+	print(tilemap)
 	tilemap.clear()
 	for y in range(map.size()):
 		for x in range(map[y].size()):
