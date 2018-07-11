@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/scripts/engine/CaveGeneration.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/tilesets/ground.tres" type="TileSet" id=3]
-[ext_resource path="res://assets/sprites/tilesets/isle47.tres" type="TileSet" id=4]
+[ext_resource path="res://assets/sprites/tilesets/image6.tres" type="TileSet" id=4]
 [ext_resource path="res://scenes/weapons/BaseWeapon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/weapons/Shotty.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/weapons/Rail.tscn" type="PackedScene" id=7]
@@ -109,10 +109,10 @@ _sections_unfolded = [ "Cell" ]
 [node name="CaveTilemap" type="TileMap" parent="Underworld" index="1"]
 
 position = Vector2( -50, -300 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.25, 0.25 )
 mode = 0
 tile_set = ExtResource( 4 )
-cell_size = Vector2( 32, 32 )
+cell_size = Vector2( 24, 24 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
@@ -126,12 +126,11 @@ collision_layer = 3
 collision_mask = 3
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray(  )
+tile_data = PoolIntArray( 262132, 0, 196609, 262133, 0, 196610, 262134, 0, 3, 262136, 0, 8, 262137, 0, 11, 327670, 0, 131073, 327671, 0, 196610, 327672, 0, 131080, 327673, 0, 131083, 393208, 0, 65544, 393209, 0, 65542, 393210, 0, 11, 458742, 0, 8, 458743, 0, 10, 458744, 0, 65541, 458745, 0, 131081, 458746, 0, 131083, 524278, 0, 196616, 524279, 0, 196618, 524280, 0, 196617, 524281, 0, 196617, 524282, 0, 196614, 524283, 0, 196611, 589815, 0, 131072 )
 _sections_unfolded = [ "Cell", "Collision", "Transform", "Z Index" ]
 
 [node name="World" type="YSort" parent="." index="2"]
 
-editor/display_folded = true
 sort_enabled = true
 
 [node name="BaseWeapon" parent="World" index="0" instance=ExtResource( 5 )]
@@ -176,8 +175,7 @@ position = Vector2( 210, 90 )
 
 [node name="Player" parent="World" index="9" instance=ExtResource( 14 )]
 
-editor/display_folded = true
-position = Vector2( 70, 150 )
+position = Vector2( 60, 150 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "collision" ]
 
 [node name="Camera2D" type="Camera2D" parent="World/Player" index="2"]
