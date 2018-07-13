@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/scripts/engine/CaveGeneration.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/tilesets/ground.tres" type="TileSet" id=3]
-[ext_resource path="res://assets/sprites/tilesets/image6.tres" type="TileSet" id=4]
+[ext_resource path="res://assets/sprites/tilesets/cave.tres" type="TileSet" id=4]
 [ext_resource path="res://scenes/weapons/BaseWeapon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/weapons/Shotty.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/weapons/Rail.tscn" type="PackedScene" id=7]
@@ -109,10 +109,9 @@ _sections_unfolded = [ "Cell" ]
 [node name="CaveTilemap" type="TileMap" parent="Underworld" index="1"]
 
 position = Vector2( -50, -300 )
-scale = Vector2( 0.25, 0.25 )
 mode = 0
 tile_set = ExtResource( 4 )
-cell_size = Vector2( 24, 24 )
+cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
@@ -126,7 +125,7 @@ collision_layer = 3
 collision_mask = 3
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 262132, 0, 196609, 262133, 0, 196610, 262134, 0, 3, 262136, 0, 8, 262137, 0, 11, 327670, 0, 131073, 327671, 0, 196610, 327672, 0, 131080, 327673, 0, 131083, 393208, 0, 65544, 393209, 0, 65542, 393210, 0, 11, 458742, 0, 8, 458743, 0, 10, 458744, 0, 65541, 458745, 0, 131081, 458746, 0, 131083, 524278, 0, 196616, 524279, 0, 196618, 524280, 0, 196617, 524281, 0, 196617, 524282, 0, 196614, 524283, 0, 196611, 589815, 0, 131072 )
+tile_data = PoolIntArray( 917501, 0, 1, 917502, 0, 196610, 917503, 0, 3, 851969, 0, 1, 851970, 0, 196610, 851971, 0, 3, 983037, 0, 65536, 983039, 0, 131073, 917504, 0, 2, 917505, 0, 131075, 917507, 0, 65536, 917509, 0, 196609, 917510, 0, 196610, 917511, 0, 2, 917512, 0, 196610, 917513, 0, 196611, 1048573, 0, 65536, 983040, 0, 65536, 983043, 0, 65536, 983047, 0, 65536, 1114109, 0, 65536, 1048576, 0, 65536, 1048579, 0, 65536, 1048583, 0, 65536, 1179645, 0, 131073, 1179646, 0, 196610, 1179647, 0, 2, 1114112, 0, 131074, 1114113, 0, 196610, 1114114, 0, 2, 1114115, 0, 131075, 1114119, 0, 65536, 1245183, 0, 65536, 1179650, 0, 65536, 1179653, 0, 196608, 1179655, 0, 131072, 1310719, 0, 65536, 1245186, 0, 65536, 1376255, 0, 131073, 1310720, 0, 196610, 1310721, 0, 196610, 1310722, 0, 131075, 1310724, 0, 196608 )
 _sections_unfolded = [ "Cell", "Collision", "Transform", "Z Index" ]
 
 [node name="World" type="YSort" parent="." index="2"]
@@ -208,6 +207,7 @@ _sections_unfolded = [ "Smoothing" ]
 
 [node name="Particles2D" type="Particles2D" parent="World/Player/Camera2D" index="0"]
 
+position = Vector2( 90, 0 )
 scale = Vector2( 5, 4 )
 z_index = -5
 emitting = true
