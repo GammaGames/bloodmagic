@@ -125,7 +125,7 @@ func stop_particles():
     $ShootParticles.emitting = false
 
 func update_gui():
-    $Camera2D/Gui.set_health(health)
+    $"/root/Game/Gui".set_health(health)
 
 func start_knockback(object, key):
     hitstun = true

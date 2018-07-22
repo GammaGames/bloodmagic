@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/scripts/engine/LevelGeneration.gd" type="Script" id=1]
+
+[node name="LevelGeneration" type="Node" index="0"]
+
+script = ExtResource( 1 )
+width = 4
+height = 4
+
+

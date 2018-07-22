@@ -8,10 +8,6 @@ var space = ' '
 var wall = '#'
 var f = '.'
 
-func _ready():
-	randomize()
-	generate()
-
 func generate():
 	var map = fill_map(width, height)
 	var valid = false
