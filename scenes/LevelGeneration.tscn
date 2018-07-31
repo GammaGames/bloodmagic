@@ -5,7 +5,5 @@
 [node name="LevelGeneration" type="Node" index="0"]
 
 script = ExtResource( 1 )
-width = 4
-height = 4
 
 

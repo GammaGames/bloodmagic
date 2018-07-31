@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/scripts/Camera2D.gd" type="Script" id=16]
 [ext_resource path="res://assets/sprites/particles/bokeh.png" type="Texture" id=17]
+[ext_resource path="res://scenes/world/BaseRoom.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Gradient" id=1]
 
@@ -69,7 +70,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Scale" ]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -84,7 +85,6 @@ rand_chance = 0.35
 
 [node name="Underworld" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 50, 300 )
 _sections_unfolded = [ "Transform" ]
 
@@ -133,7 +133,6 @@ _sections_unfolded = [ "Cell", "Collision", "Transform", "Z Index" ]
 
 [node name="World" type="YSort" parent="." index="3"]
 
-editor/display_folded = true
 sort_enabled = true
 
 [node name="BaseWeapon" parent="World" index="0" instance=ExtResource( 6 )]
@@ -233,6 +232,10 @@ normal_map = null
 h_frames = 3
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="BaseRoom" parent="World" index="10" instance=ExtResource( 18 )]
+
+position = Vector2( -20, 100 )
 
 [node name="Overworld" type="Node2D" parent="." index="4"]
 

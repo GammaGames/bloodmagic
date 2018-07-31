@@ -86,7 +86,7 @@ func hurt(item):
         $Hitstun.interpolate_property(self, "knock_speed", knock_speed, 200, 0.3, Tween.TRANS_QUART, Tween.EASE_OUT)
         $Hitstun.start()
 
-        $Camera2D.shake(0.3, 15, 5)
+        # $Camera2D.shake(0.3, 15, 5)
         health -= item.damage
         if health < 1.5:
             Time.slow_motion(0.3)
@@ -119,7 +119,7 @@ func post_shoot(frequency, amplitude, dir):
     $ShootParticles.emitting = true
     $ShootParticles/Timer.start()
 
-    $Camera2D.shake(0.2, frequency, amplitude)
+    # $Camera2D.shake(0.2, frequency, amplitude)
 
 func stop_particles():
     $ShootParticles.emitting = false

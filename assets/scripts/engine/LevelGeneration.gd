@@ -1,7 +1,7 @@
 extends Node
 
-export(int) var width = 4
-export(int) var height = 4
+var width = 4
+var height = 4
 
 func _ready():
 	randomize()
@@ -9,7 +9,7 @@ func _ready():
 
 func generate():
 	var level = fill_level(width, height)
-	while !check_level(level, 0.3):
+	while !check_level(level, 0.4):
 		level = fill_level(width, height)
 
 	print(get_level_string(level))
