@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/scripts/engine/LevelGeneration.gd" type="Script" id=1]
 
-[node name="LevelGeneration" type="Node" index="0"]
+[node name="LevelGeneration" type="Node2D"]
 
 script = ExtResource( 1 )
 

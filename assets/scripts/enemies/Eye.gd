@@ -31,10 +31,10 @@ func hurt(damage):
             chunk.global_position = global_position
             $"/root/Game/World".add_child(chunk)
     if health <= 0:
-        $"../Player/Camera2D".shake(0.3, 15, 5)
+        $"/root/Game/Camera2D".shake(0.3, 15, 5)
         die()
     else:
-        $"../Player/Camera2D".shake(0.2, 24, 1)
+        $"/root/Game/Camera2D".shake(0.2, 24, 1)
 
 func damage(player):
     return damage

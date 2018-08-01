@@ -1,7 +1,9 @@
-extends Node
+extends Node2D
 
-var width = 4
-var height = 4
+var width = 5
+var height = 5
+
+var base_room = load("res://scenes/world/BaseRoom.tscn")
 
 func _ready():
 	randomize()
@@ -13,6 +15,7 @@ func generate():
 		level = fill_level(width, height)
 
 	print(get_level_string(level))
+	create_rooms(level)
 
 func fill_level(width, height):
 	var level = []
@@ -22,8 +25,8 @@ func fill_level(width, height):
 			row.append(0)
 		level.append(row)
 
-	var x = floor(width / 2)
-	var y = floor(width / 2)
+	var x = floor(width / 2) - 1
+	var y = floor(width / 2) - 1
 
 	for i in range(width * height):
 		level[y][x] = 1
@@ -50,3 +53,11 @@ func get_level_string(level):
 			m += str(ch)
 		m += "\n"
 	return m
+
+func create_rooms(level):
+	for y in range(0, level.size()):
+		for x in range(0, level[y].size()):
+			if level[y][x] == 1:
+				var room = base_room.instance()
+				room.global_position = Vector2(x * 208, y * 112)
+				$"../Overworld".add_child(room)
