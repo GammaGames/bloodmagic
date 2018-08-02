@@ -17,7 +17,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Torch" index="0" instance=ExtResource( 1 )]
+[node name="Torch" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
@@ -29,6 +29,7 @@ texture = ExtResource( 3 )
 
 frames = SubResource( 1 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="." index="3"]

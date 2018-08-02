@@ -4,6 +4,12 @@
 [ext_resource path="res://assets/sprites/particles/spr_split.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/player/player.png" type="Texture" id=3]
 
+[sub_resource type="OccluderPolygon2D" id=17]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -3, -4, 2, -4, 3, 7, -4, 7 )
+
 [sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 0.809187, 1 )
@@ -358,13 +364,7 @@ custom_solver_bias = 0.0
 radius = 5.0
 height = 4.0
 
-[sub_resource type="OccluderPolygon2D" id=17]
-
-closed = true
-cull_mode = 0
-polygon = PoolVector2Array( -3, -4, 2, -4, 3, 7, -4, 7 )
-
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = true
 collision_layer = 2
@@ -373,7 +373,13 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="ShootParticles" type="Particles2D" parent="." index="0"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="0"]
+
+position = Vector2( 0, -1 )
+occluder = SubResource( 17 )
+light_mask = 1
+
+[node name="ShootParticles" type="Particles2D" parent="." index="1"]
 
 editor/display_folded = true
 emitting = false
@@ -403,7 +409,7 @@ wait_time = 0.1
 one_shot = true
 autostart = false
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="Sprite" type="Sprite" parent="." index="2"]
 
 texture = ExtResource( 3 )
 flip_h = true
@@ -412,7 +418,7 @@ hframes = 2
 frame = 2
 _sections_unfolded = [ "Animation", "Offset", "Transform" ]
 
-[node name="HurtParticles" type="Particles2D" parent="." index="2"]
+[node name="HurtParticles" type="Particles2D" parent="." index="3"]
 
 emitting = false
 amount = 8
@@ -434,12 +440,13 @@ h_frames = 4
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 
+visible = false
 shape = SubResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -457,7 +464,7 @@ anims/walk_up_right = SubResource( 15 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="Tween" type="Tween" parent="." index="5"]
+[node name="Tween" type="Tween" parent="." index="6"]
 
 repeat = false
 playback_process_mode = 1
@@ -466,7 +473,7 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Hitstun" type="Tween" parent="." index="6"]
+[node name="Hitstun" type="Tween" parent="." index="7"]
 
 repeat = false
 playback_process_mode = 1
@@ -475,8 +482,9 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Hitbox" type="Area2D" parent="." index="7"]
+[node name="Hitbox" type="Area2D" parent="." index="8"]
 
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -490,14 +498,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 
-visible = false
 shape = SubResource( 16 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="8"]
-
-position = Vector2( 0, -1 )
-occluder = SubResource( 17 )
-light_mask = 1
 
 

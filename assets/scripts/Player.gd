@@ -12,7 +12,7 @@ enum STATES {
 }
 
 var state = STATES.IDLE
-onready var camera = $"/root/Game/Camera"
+onready var camera = $"/root/Game/Camera2D"
 
 func _ready():
     add_to_group("player")

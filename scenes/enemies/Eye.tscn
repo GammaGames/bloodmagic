@@ -5,6 +5,12 @@
 [ext_resource path="res://assets/sprites/enemies/spr_eye_0.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/particles/eye_particles.png" type="Texture" id=4]
 
+[sub_resource type="OccluderPolygon2D" id=8]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( 0, -6, 6, 0, 0, 6, -6, 0 )
+
 [sub_resource type="ShaderMaterial" id=1]
 
 render_priority = 0
@@ -79,13 +85,7 @@ _sections_unfolded = [ "Angle" ]
 custom_solver_bias = 0.0
 radius = 8.0
 
-[sub_resource type="OccluderPolygon2D" id=8]
-
-closed = true
-cull_mode = 0
-polygon = PoolVector2Array( 0, -6, 6, 0, 0, 6, -6, 0 )
-
-[node name="Eye" type="KinematicBody2D" index="0"]
+[node name="Eye" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 4
@@ -94,18 +94,25 @@ collision/safe_margin = 0.001
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="Shadow" type="LightOccluder2D" parent="." index="0"]
+
+occluder = SubResource( 8 )
+light_mask = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
 
 material = SubResource( 1 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Material" ]
+_sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
+visible = false
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -115,7 +122,7 @@ playback_speed = 1.0
 anims/sin = SubResource( 3 )
 blend_times = [  ]
 
-[node name="HurtParticles" type="Particles2D" parent="." index="3"]
+[node name="HurtParticles" type="Particles2D" parent="." index="4"]
 
 emitting = false
 amount = 10
@@ -137,14 +144,14 @@ h_frames = 4
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Time", "Transform" ]
 
-[node name="Die" type="Timer" parent="." index="4"]
+[node name="Die" type="Timer" parent="." index="5"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = true
 autostart = false
 
-[node name="Hitstun" type="Tween" parent="." index="5"]
+[node name="Hitstun" type="Tween" parent="." index="6"]
 
 repeat = false
 playback_process_mode = 1
@@ -153,8 +160,9 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Hitbox" type="Area2D" parent="." index="6"]
+[node name="Hitbox" type="Area2D" parent="." index="7"]
 
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -169,11 +177,5 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 
 shape = SubResource( 7 )
-
-[node name="Shadow" type="LightOccluder2D" parent="." index="7"]
-
-occluder = SubResource( 8 )
-light_mask = 1
-_sections_unfolded = [ "Visibility" ]
 
 

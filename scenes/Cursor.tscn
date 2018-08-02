@@ -1,0 +1,173 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/scripts/Cursor.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/player/cursor.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/light/torch.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=2]
+
+offsets = PoolRealArray( 0, 0.157895, 0.559809, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.972656, 0.820679, 0, 1, 1, 0.257812, 0, 1, 1, 0, 0, 0.436471 )
+
+[sub_resource type="GradientTexture" id=3]
+
+flags = 4
+gradient = SubResource( 2 )
+width = 512
+
+[sub_resource type="Curve" id=4]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.414062 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+
+flags = 4
+width = 2048
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 2, 2, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.0
+angular_velocity = 350.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 25.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 50.0
+tangential_accel_random = 1.0
+damping = 0.0
+damping_random = 0.0
+angle = 45.0
+angle_random = 1.0
+scale = 2.0
+scale_random = 0.5
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Scale", "Spread" ]
+
+[node name="Cursor" type="Node2D" index="0"]
+
+z_index = 4096
+z_as_relative = false
+script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility", "Z Index" ]
+
+[node name="Underfire" type="Particles2D" parent="." index="0"]
+
+position = Vector2( 2, 0 )
+rotation = -1.5708
+emitting = true
+amount = 10
+lifetime = 0.5
+one_shot = false
+preprocess = 0.0
+speed_scale = 0.75
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 6 )
+texture = null
+normal_map = null
+h_frames = 4
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Overfire" type="Particles2D" parent="." index="2"]
+
+position = Vector2( 2, 1 )
+rotation = -1.5708
+emitting = true
+amount = 6
+lifetime = 0.5
+one_shot = false
+preprocess = 0.0
+speed_scale = 0.75
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 6 )
+texture = null
+normal_map = null
+h_frames = 4
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[node name="Tween" type="Tween" parent="." index="4"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Light2D" type="Light2D" parent="." index="5"]
+
+enabled = true
+editor_only = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.3
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 1
+shadow_filter_smooth = 32.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Range", "Shadow", "Visibility" ]
+
+
