@@ -11,7 +11,6 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		show()
 		$Underfire.emitting = true
 		$Overfire.emitting = true
 		modulate = Color(1, 1, 1, 1)
@@ -22,6 +21,6 @@ func tween():
 	$Tween.interpolate_property(self, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 1, Tween.TRANS_QUART, Tween.EASE_OUT)
 	$Tween.start()
 
-func _end_tween():
+func _end_tween(object, key):
 	$Underfire.emitting = false
 	$Overfire.emitting = false

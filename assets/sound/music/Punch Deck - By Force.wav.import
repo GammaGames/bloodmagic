@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Punch Deck - By Force.wav-603d3eeb3916993a9f7a602762bc3f5e.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/Punch Deck - By Force.wav"
+dest_files=[ "res://.import/Punch Deck - By Force.wav-603d3eeb3916993a9f7a602762bc3f5e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

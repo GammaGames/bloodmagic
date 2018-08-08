@@ -1,17 +1,22 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/scripts/world/BaseRoom.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/tilesets/cave.tres" type="TileSet" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 6, 16, 6, 48, 0, 48 )
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 84, 0, 84, 16, 6, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 84, 0, 124, 0, 124, 16, 84, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 
@@ -23,32 +28,47 @@ points = PoolVector2Array( 124, 0, 208, 0, 202, 16, 124, 16 )
 custom_solver_bias = 0.0
 points = PoolVector2Array( 208, 0, 208, 48, 202, 48, 202, 16 )
 
+[sub_resource type="ConvexPolygonShape2D" id=11]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 202, 48, 208, 48, 208, 68, 202, 68 )
+
 [sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
-points = PoolVector2Array( 208, 68, 208, 112, 202, 110, 202, 68 )
+points = PoolVector2Array( 208, 68, 208, 128, 202, 110, 202, 68 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 
 custom_solver_bias = 0.0
-points = PoolVector2Array( 208, 112, 124, 112, 124, 110, 202, 110 )
+points = PoolVector2Array( 208, 128, 124, 128, 124, 110, 202, 110 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 84, 110, 124, 110, 124, 128, 84, 128 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 
 custom_solver_bias = 0.0
-points = PoolVector2Array( 6, 110, 84, 110, 84, 112, 0, 112 )
+points = PoolVector2Array( 6, 110, 84, 110, 84, 128, 0, 128 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 
 custom_solver_bias = 0.0
-points = PoolVector2Array( 0, 68, 6, 68, 6, 110, 0, 112 )
+points = PoolVector2Array( 0, 68, 6, 68, 6, 110, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 0, 48, 6, 48, 6, 68, 0, 68 )
 
 [sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
-extents = Vector2( 96, 46 )
+extents = Vector2( 96, 52 )
 
-[node name="BaseRoom" type="Area2D"]
+[node name="BaseRoom" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -64,6 +84,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
+visible = false
 position = Vector2( 8, 8 )
 z_as_relative = false
 mode = 0
@@ -83,7 +104,7 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -1, 0, 1, -65536, 0, 196610, -65535, 0, 196610, -65534, 0, 196610, -65533, 0, 196610, -65532, 0, 196611, -65529, 0, 196609, -65528, 0, 196610, -65527, 0, 196610, -65526, 0, 196610, -65525, 0, 196610, -65524, 0, 3, 65535, 0, 65536, 12, 0, 65536, 131071, 0, 131072, 65548, 0, 131072, 262143, 0, 0, 196620, 0, 0, 327679, 0, 65536, 262156, 0, 65536, 393215, 0, 65536, 327692, 0, 65536, 458751, 0, 131073, 393216, 0, 196610, 393217, 0, 196610, 393218, 0, 196610, 393219, 0, 196610, 393220, 0, 196611, 393223, 0, 196609, 393224, 0, 196610, 393225, 0, 196610, 393226, 0, 196610, 393227, 0, 196610, 393228, 0, 131075 )
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
 [node name="ltl" type="StaticBody2D" parent="." index="1"]
 
@@ -98,7 +119,7 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ltl" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="ttl" type="StaticBody2D" parent="." index="2"]
 
@@ -114,9 +135,29 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ttl" index="0"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="ttr" type="StaticBody2D" parent="." index="3"]
+[node name="TopDoor" type="StaticBody2D" parent="." index="3" groups=[
+"doors",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopDoor" index="0"]
+
+modulate = Color( 0.230469, 1, 0.2966, 1 )
+shape = SubResource( 10 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="ttr" type="StaticBody2D" parent="." index="4"]
 
 editor/display_folded = true
 input_pickable = false
@@ -131,7 +172,7 @@ bounce = 0.0
 
 shape = SubResource( 3 )
 
-[node name="rtr" type="StaticBody2D" parent="." index="4"]
+[node name="rtr" type="StaticBody2D" parent="." index="5"]
 
 editor/display_folded = true
 input_pickable = false
@@ -146,7 +187,25 @@ bounce = 0.0
 
 shape = SubResource( 4 )
 
-[node name="rbr" type="StaticBody2D" parent="." index="5"]
+[node name="RightDoor" type="StaticBody2D" parent="." index="6" groups=[
+"doors",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightDoor" index="0"]
+
+modulate = Color( 0.230469, 1, 0.2966, 1 )
+shape = SubResource( 11 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="rbr" type="StaticBody2D" parent="." index="7"]
 
 editor/display_folded = true
 input_pickable = false
@@ -161,7 +220,7 @@ bounce = 0.0
 
 shape = SubResource( 5 )
 
-[node name="brb" type="StaticBody2D" parent="." index="6"]
+[node name="brb" type="StaticBody2D" parent="." index="8"]
 
 editor/display_folded = true
 input_pickable = false
@@ -175,8 +234,29 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="brb" index="0"]
 
 shape = SubResource( 6 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="blb" type="StaticBody2D" parent="." index="7"]
+[node name="BottomDoor" type="StaticBody2D" parent="." index="9" groups=[
+"doors",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomDoor" index="0"]
+
+modulate = Color( 0.230469, 1, 0.2966, 1 )
+shape = SubResource( 13 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="blb" type="StaticBody2D" parent="." index="10"]
 
 editor/display_folded = true
 input_pickable = false
@@ -191,7 +271,7 @@ bounce = 0.0
 
 shape = SubResource( 7 )
 
-[node name="lbl" type="StaticBody2D" parent="." index="8"]
+[node name="lbl" type="StaticBody2D" parent="." index="11"]
 
 editor/display_folded = true
 input_pickable = false
@@ -206,11 +286,34 @@ bounce = 0.0
 
 shape = SubResource( 8 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="9"]
+[node name="LeftDoor" type="StaticBody2D" parent="." index="12" groups=[
+"doors",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDoor" index="0"]
+
+modulate = Color( 0.230469, 1, 0.2966, 1 )
+shape = SubResource( 12 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="13"]
 
 visible = false
-position = Vector2( 104, 56 )
+modulate = Color( 0, 0.0247192, 0.632812, 1 )
+position = Vector2( 104, 64 )
 shape = SubResource( 9 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Node2D" type="Node2D" parent="." index="14"]
 
 

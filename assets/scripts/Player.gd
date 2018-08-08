@@ -133,4 +133,4 @@ func end_knockback(object, key):
     hitstun = false
 
 func transition_room(room):
-    $"/root/Game/Camera2D".global_position = room.global_position + Vector2(104, 56)
+    $"/root/Game/Camera2D".global_position = room.global_position + Vector2(104, 64)

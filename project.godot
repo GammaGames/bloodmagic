@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 dir="*res://assets/scripts/engine/directions.gd"
 Time="*res://assets/scripts/engine/Time.gd"
 Cursor="*res://scenes/Cursor.tscn"
+Music="*res://scenes/Music.tscn"
 
 [display]
 
