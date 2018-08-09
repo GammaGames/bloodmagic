@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/sprites/tilesets/cave.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/CaveGeneration.tscn" type="PackedScene" id=3]
 
-[node name="LevelGeneration" type="Node"]
+[node name="LevelGeneration" type="Node" index="0"]
 
 script = ExtResource( 1 )
 

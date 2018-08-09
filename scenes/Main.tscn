@@ -67,7 +67,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Scale" ]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -99,7 +99,7 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true
 script = ExtResource( 3 )
-_sections_unfolded = [ "Drag Margin", "Smoothing" ]
+_sections_unfolded = [ "Drag Margin" ]
 
 [node name="Particles2D" type="Particles2D" parent="Camera2D" index="0"]
 

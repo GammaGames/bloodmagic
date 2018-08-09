@@ -89,4 +89,5 @@ key_modifier=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_na
 [rendering]
 
 quality/2d/use_pixel_snap=true
+environment/default_clear_color=Color( 0.25098, 0.25098, 0.25098, 1 )
 environment/default_environment="res://default_env.tres"
