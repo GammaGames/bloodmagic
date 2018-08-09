@@ -67,7 +67,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Scale" ]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -174,7 +174,7 @@ collision_mask = 1
 
 [node name="Chunk" parent="World" index="3" instance=ExtResource( 10 )]
 
-position = Vector2( 79.512, 79.018 )
+position = Vector2( 16, 80 )
 
 [node name="Well" parent="World" index="4" instance=ExtResource( 11 )]
 
