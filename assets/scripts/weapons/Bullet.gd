@@ -46,8 +46,8 @@ func _on_body_shape_entered(body_id, body, body_shape, self_shape):
     if body.is_in_group("world"):
         penetration -= 1
 
-# TODO? use CollisionShape2D
 func disable():
+    # TODO? causes error
     remove_from_group("bullet")
     disconnect("body_shape_entered", self, "_on_body_shape_entered")
 

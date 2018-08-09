@@ -5,42 +5,42 @@
 [ext_resource path="res://assets/sprites/enemies/spr_eye_0.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/particles/eye_particles.png" type="Texture" id=4]
 
-[sub_resource type="OccluderPolygon2D" id=8]
+[sub_resource type="OccluderPolygon2D" id=1]
 
 closed = true
 cull_mode = 0
 polygon = PoolVector2Array( 0, -6, 6, 0, 0, 6, -6, 0 )
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=2]
 
 render_priority = 0
 shader = ExtResource( 2 )
 shader_param/shift_amount = 0.081
 _sections_unfolded = [ "Resource", "shader_param" ]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 7.0
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
 length = 1.0
 loop = false
 step = 0.1
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=5]
 
 offsets = PoolRealArray( 0.680473, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=5]
+[sub_resource type="GradientTexture" id=6]
 
 flags = 4
-gradient = SubResource( 4 )
+gradient = SubResource( 5 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=7]
 
 render_priority = 0
 trail_divisor = 1
@@ -70,7 +70,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.25
 scale_random = 1.0
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 6 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -80,12 +80,12 @@ anim_offset_random = 1.0
 anim_loop = false
 _sections_unfolded = [ "Angle" ]
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=8]
 
 custom_solver_bias = 0.0
 radius = 8.0
 
-[node name="Eye" type="KinematicBody2D"]
+[node name="Eye" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 4
@@ -96,20 +96,20 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Shadow" type="LightOccluder2D" parent="." index="0"]
 
-occluder = SubResource( 8 )
+occluder = SubResource( 1 )
 light_mask = 1
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
-material = SubResource( 1 )
+material = SubResource( 2 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
 visible = false
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
@@ -119,7 +119,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/sin = SubResource( 3 )
+anims/sin = SubResource( 4 )
 blend_times = [  ]
 
 [node name="HurtParticles" type="Particles2D" parent="." index="4"]
@@ -137,7 +137,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 6 )
+process_material = SubResource( 7 )
 texture = ExtResource( 4 )
 normal_map = null
 h_frames = 4
@@ -176,6 +176,6 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 

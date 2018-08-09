@@ -1,14 +1,12 @@
 extends Node
 
-export(int) var width = 33
-export(int) var height = 18
-export(float) var rand_chance = 0.4
+var rand_chance = 0.4
 
 var space = ' '
 var wall = '#'
 var f = '.'
 
-func generate():
+func generate(width, height):
 	var map = fill_map(width, height)
 	var valid = false
 	while !valid:
@@ -20,7 +18,8 @@ func generate():
 		valid = check_map(m, f, 0.45)
 
 	close_map(map)
-	set_tilemap($"../Underworld/CaveTilemap", map)
+	return map
+	# set_tilemap($"../Underworld/CaveTilemap", map)
 
 func fill_map(width, height):
 	var map = []
@@ -56,7 +55,6 @@ func iterate_empty(map):
 				map[y][x] = wall
 
 func set_tilemap(tilemap, map):
-	print(tilemap)
 	tilemap.clear()
 	for y in range(map.size()):
 		for x in range(map[y].size()):

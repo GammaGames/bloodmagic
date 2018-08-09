@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 var width = 5
 var height = 5
@@ -10,15 +10,21 @@ var base_room = load("res://scenes/world/BaseRoom.tscn")
 
 func _ready():
 	randomize()
-	generate()
+	var level = generate(width, height)
+	create_rooms(level)
+	$"../Gui".set_minimap(level)
 
-func generate():
+	var caveFloor = $CaveGeneration.generate(width * tilemap_width, height * tilemap_height)
+	$CaveGeneration.set_tilemap($"../Underworld/GroundTileMap", caveFloor)
+
+func generate(width, height):
+	self.width = width
+	self.height = height
 	var level = fill_level(width, height)
 	while !check_level(level, 0.4):
 		level = fill_level(width, height)
 
-	print(get_level_string(level))
-	create_rooms(level)
+	return level
 
 func fill_level(width, height):
 	var level = []

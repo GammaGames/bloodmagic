@@ -18,3 +18,14 @@ func set_health(health):
     grid.minimum_size_changed()
 
     progress.value = extra
+
+func set_minimap(map):
+    for node in $Minimap.get_children():
+        node.queue_free()
+    $Minimap.columns = map[0].size()
+    for y in range(0, map.size()):
+        for x in range(0, map[y].size()):
+            if map[y][x] == 1:
+                $Minimap.add_child($Rooms/BaseRoom.duplicate())
+            else:
+                $Minimap.add_child($Rooms/EmptyRoom.duplicate())
