@@ -1,13 +1,14 @@
 extends "res://assets/scripts/engine/BaseWeapon.gd"
 
+
 func _init():
-    cooldown = 1.5
-    speed = 400
-    spread = 3
-    damage = 5
-    penetration = 3
-    life = 2
-    cost = 0.12
+    cooldown = 0.1
+    speed = 0
+    spread = 0
+    damage = 2
+    penetration = 10
+    life = 0.09
+    cost = 0.01
 
 func shoot(dir, items):
     if $Timer.time_left == 0:

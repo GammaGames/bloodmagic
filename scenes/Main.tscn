@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=2]
@@ -9,12 +9,13 @@
 [ext_resource path="res://scenes/weapons/BaseWeapon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/weapons/Shotty.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/weapons/Rail.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/items/Chunk1.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/world/Well.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/world/Grave.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/world/Torch.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/world/Pillar.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/weapons/Stream.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/items/Chunk1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/world/Well.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/world/Grave.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/world/Torch.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/world/Pillar.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Gradient" id=1]
 
@@ -67,7 +68,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Scale" ]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -172,31 +173,37 @@ collision_mask = 1
 position = Vector2( 130, 140 )
 collision_mask = 1
 
-[node name="Chunk" parent="World" index="3" instance=ExtResource( 10 )]
+[node name="Stream" parent="World" index="3" instance=ExtResource( 10 )]
+
+position = Vector2( 464, 64 )
+
+[node name="Chunk" parent="World" index="4" instance=ExtResource( 11 )]
 
 position = Vector2( 16, 80 )
 
-[node name="Well" parent="World" index="4" instance=ExtResource( 11 )]
+[node name="Well" parent="World" index="5" instance=ExtResource( 12 )]
 
 position = Vector2( 64, 208 )
 
-[node name="Grave" parent="World" index="5" instance=ExtResource( 12 )]
+[node name="Grave" parent="World" index="6" instance=ExtResource( 13 )]
 
 position = Vector2( 50, 80 )
 
-[node name="Torch" parent="World" index="6" instance=ExtResource( 13 )]
+[node name="Torch" parent="World" index="7" instance=ExtResource( 14 )]
 
 position = Vector2( 272, 208 )
 
-[node name="Pillar" parent="World" index="7" instance=ExtResource( 14 )]
+[node name="Pillar" parent="World" index="8" instance=ExtResource( 15 )]
 
 position = Vector2( 336, 48 )
 
-[node name="Player" parent="World" index="8" instance=ExtResource( 15 )]
+[node name="Player" parent="World" index="9" instance=ExtResource( 16 )]
 
-position = Vector2( 304, 176 )
+position = Vector2( 288, 176 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "collision" ]
 
 [node name="Overworld" type="Node2D" parent="." index="5"]
+
+visible = false
 
 
