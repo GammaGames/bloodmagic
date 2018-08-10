@@ -17,12 +17,15 @@ func _ready():
 
 func shoot(dir, items):
     if $Timer.time_left == 0:
-        var bullet = $Bullet.duplicate()
-        var spread_angle = deg2rad(spread)
-        bullet.shoot(dir - rand_range(-spread_angle, spread_angle), speed * rand_range(0.9, 1), damage, life, penetration)
-        bullet.global_position = global_position
-        $"/root/Game/Overworld".add_child(bullet)
-        post_shoot(24, 1, dir)
+        var count = randi() % 5 + 10
+        var spread_angle = deg2rad(spread / count)
+        for i in range(0, count):
+            var bullet = $Bullet.duplicate()
+            bullet.shoot(dir - (count / 2 - i) * spread_angle, speed * rand_range(0.9, 1), damage, life, penetration)
+            bullet.global_position = global_position
+            $"/root".add_child(bullet)
+
+        post_shoot(24, 6, dir)
         return true
     else:
         return false
