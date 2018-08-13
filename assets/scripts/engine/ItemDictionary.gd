@@ -7,7 +7,7 @@ onready var weapons = [
 	"Stream"
 ]
 
-func get_weapon(weapon):
+func get_weapon(weapon=""):
 	var new = weapons[randi() % weapons.size()]
 	while new == weapon:
 		new = weapons[randi() % weapons.size()]

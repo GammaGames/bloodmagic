@@ -67,14 +67,25 @@ func create_rooms(level):
 	for y in range(0, level.size()):
 		for x in range(0, level[y].size()):
 			if level[y][x] == 1:
-				var room = base_room.instance()
-				room.global_position = Vector2(x * 208, y * 128)
-
-				create_room_walls(level, x, y)
-				create_room_doors(room, level, x, y)
-
-				$"../Overworld".add_child(room)
+				create_room(x, y, level)
 	$TileMap.update_bitmask_region(Vector2(-1, -1), Vector2(width * tilemap_width + 1, height * tilemap_height + 1))
+
+func create_room(x, y, level):
+	var room = base_room.instance()
+	room.global_position = Vector2(x * 208, y * 128)
+
+	create_room_walls(level, x, y)
+	create_room_doors(room, level, x, y)
+
+	$"../Overworld".add_child(room)
+
+func create_treasure_room(x, y):
+	# TODO
+	pass
+
+func create_boss_room(x, y):
+	# TODO
+	pass
 
 func create_room_walls(level, x, y):
 	var offset_x = x * tilemap_width - 1
@@ -86,6 +97,10 @@ func create_room_walls(level, x, y):
 	for xx in range(tilemap_width):
 		$TileMap.set_cell(offset_x + xx, offset_y, 0)
 		$TileMap.set_cell(offset_x + xx, offset_y + tilemap_height - 1, 0)
+
+	# TODO fix
+	var room = $CaveGeneration.generate(tilemap_width, tilemap_height)
+	$CaveGeneration.add_tilemap($TileMap, room, x * tilemap_width, y * tilemap_height)
 
 func create_room_doors(room, level, x, y):
 	var north = check_pos(x, y - 1) && level[y - 1][x] == 1

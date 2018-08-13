@@ -54,13 +54,16 @@ func iterate_empty(map):
 			else:
 				map[y][x] = wall
 
-func set_tilemap(tilemap, map):
+func set_tilemap(tilemap, map, offsetX=0, offsetY=0):
 	tilemap.clear()
+	add_tilemap(tilemap, map, offsetX, offsetY)
+
+func add_tilemap(tilemap, map, offsetX=0, offsetY=0):
 	for y in range(map.size()):
 		for x in range(map[y].size()):
 			if map[y][x] == wall:
-				tilemap.set_cell(x, y, 0)
-	tilemap.update_bitmask_region(Vector2(0, 0), Vector2(map[0].size(), map.size()))
+				tilemap.set_cell(x + offsetX, y + offsetY, 0)
+	tilemap.update_bitmask_region(Vector2(offsetX, offsetY), Vector2(map[0].size() + offsetX, map.size() + offsetY))
 
 func check_surrounding(x, y, ch, map):
 	var count = 0
