@@ -1,7 +1,17 @@
 extends Node
 
-onready var weapons = $Weapons.get_children()
+onready var weapons = [
+	"PeaShooter",
+	"Rail",
+	"Shotty",
+	"Stream"
+]
 
-func get_weapon():
-	var index = randi() % weapons.size()
-	return $Weapons.get_child(index).duplicate()
+func get_weapon(weapon):
+	var new = weapons[randi() % weapons.size()]
+	while new == weapon:
+		new = weapons[randi() % weapons.size()]
+	return load_weapon(new)
+
+func load_weapon(weapon):
+	return load("res://scenes/weapons/" + str(weapon) + ".tscn").instance()

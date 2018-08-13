@@ -1,13 +1,14 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/scripts/engine/ItemDictionary.gd" type="Script" id=1]
-[ext_resource path="res://scenes/weapons/BaseWeapon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/weapons/PeaShooter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/weapons/Rail.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/weapons/Shotty.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/weapons/Stream.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/items/Chunk1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/items/Chunk2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/items/Chunk3.tscn" type="PackedScene" id=8]
+
 
 [node name="ItemDictionary" type="Node2D" index="0"]
 

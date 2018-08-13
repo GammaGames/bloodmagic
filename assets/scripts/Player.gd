@@ -18,7 +18,7 @@ func _ready():
     add_to_group("player")
     speed = 150
     health = 3.5
-    change_weapon(load("res://scenes/weapons/BaseWeapon.tscn").instance())
+    change_weapon(ItemDictionary.load_weapon("PeaShooter"))
     update_gui()
     $ShootParticles/Timer.connect("timeout", self, "stop_particles")
     $Hitstun.connect("tween_started", self, "start_knockback")

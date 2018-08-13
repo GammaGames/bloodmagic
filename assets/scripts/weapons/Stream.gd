@@ -1,6 +1,5 @@
 extends "res://assets/scripts/engine/BaseWeapon.gd"
 
-
 func _init():
     cooldown = 0.1
     speed = 0
