@@ -418,6 +418,7 @@ group = ExtResource( 11 )
 text = "Play"
 flat = false
 align = 1
+_sections_unfolded = [ "custom_styles" ]
 
 [node name="Options" type="Button" parent="Title/Menu/Boxes/Center/Buttons" index="1"]
 
