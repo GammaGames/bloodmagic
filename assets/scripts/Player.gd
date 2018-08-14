@@ -16,7 +16,7 @@ onready var camera = $"/root/Game/Camera2D"
 
 func _ready():
     add_to_group("player")
-    speed = 150
+    speed = 100
     health = 3.5
     change_weapon(ItemDictionary.load_weapon("PeaShooter"))
     update_gui()

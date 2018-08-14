@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scenes/world/Torch.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/world/Pillar.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/enemies/Eye.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Gradient" id=1]
 
@@ -68,7 +69,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Scale" ]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -201,6 +202,10 @@ position = Vector2( 336, 48 )
 
 position = Vector2( 288, 176 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "collision" ]
+
+[node name="Eye" parent="World" index="10" instance=ExtResource( 17 )]
+
+position = Vector2( 288, 32 )
 
 [node name="Overworld" type="Node2D" parent="." index="5"]
 

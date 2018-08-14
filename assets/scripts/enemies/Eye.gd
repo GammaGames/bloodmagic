@@ -1,7 +1,7 @@
 extends 'res://assets/scripts/engine/Entity.gd'
 
 onready var player = $"/root/Game/World/Player"
-var health_drop_change = 0.7
+var health_drop_chance = 0.05
 var damage = 0.3
 
 func _init():
@@ -10,9 +10,11 @@ func _init():
 func _ready():
     add_to_group("enemy")
     $Hitbox.connect("body_shape_entered", self, "_on_body_shape_entered")
+    $Die.connect("timeout", self, "queue_free")
     var mat = $Sprite.get_material().duplicate()
     mat.set_shader_param("shift_amount", randf())
     $Sprite.set_material(mat)
+    $Flash.interpolate_property($Sprite, "modulate", Color(10, 10, 10, 10), Color(1, 1, 1, 1), .4,  Tween.TRANS_QUART, Tween.EASE_OUT)
 
 func _physics_process(delta):
     if health > 0:
@@ -23,7 +25,9 @@ func _physics_process(delta):
 func hurt(damage):
     health = health - damage
     $HurtParticles.restart()
-    if randf() < health_drop_change:
+    $Flash.seek(0)
+    $Flash.start()
+    if randf() < health_drop_chance:
         var count = randi() % 3
         for i in range(0, count):
             var index = randi() % 3 + 1
@@ -49,5 +53,4 @@ func die():
     $Hitbox.monitorable = false
     $Hitbox.monitoring = false
     $Shadow.visible = false
-    $Die.connect("timeout", self, "queue_free")
     $Die.start()

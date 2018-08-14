@@ -3,7 +3,7 @@ extends Node2D
 func _ready():
 	$Tween.connect("tween_completed", self, "_end_tween")
 	$Timer.connect("timeout", self, "tween")
-	hide()
+	# hide()
 
 func _process(delta):
 	if visible:
@@ -18,7 +18,7 @@ func _input(event):
 		$Timer.start()
 
 func tween():
-	$Tween.interpolate_property(self, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 1, Tween.TRANS_QUART, Tween.EASE_OUT)
+	$Tween.interpolate_property(self, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.5, Tween.TRANS_QUART, Tween.EASE_OUT)
 	$Tween.start()
 
 func _end_tween(object, key):

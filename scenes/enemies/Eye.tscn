@@ -85,7 +85,7 @@ _sections_unfolded = [ "Angle" ]
 custom_solver_bias = 0.0
 radius = 8.0
 
-[node name="Eye" type="KinematicBody2D" index="0"]
+[node name="Eye" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 4
@@ -160,7 +160,16 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Hitbox" type="Area2D" parent="." index="7"]
+[node name="Flash" type="Tween" parent="." index="7"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Hitbox" type="Area2D" parent="." index="8"]
 
 visible = false
 input_pickable = true

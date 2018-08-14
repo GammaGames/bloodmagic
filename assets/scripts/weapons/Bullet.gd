@@ -49,7 +49,8 @@ func _on_body_shape_entered(body_id, body, body_shape, self_shape):
 func disable():
     # TODO? causes error
     remove_from_group("bullet")
-    disconnect("body_shape_entered", self, "_on_body_shape_entered")
+    if(is_connected("body_shape_entered", self, "_on_body_shape_entered")):
+        disconnect("body_shape_entered", self, "_on_body_shape_entered")
 
 func enable():
     add_to_group("bullet")

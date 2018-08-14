@@ -99,8 +99,8 @@ func create_room_walls(level, x, y):
 		$TileMap.set_cell(offset_x + xx, offset_y + tilemap_height - 1, 0)
 
 	# TODO fix
-	var room = $CaveGeneration.generate(tilemap_width, tilemap_height)
-	$CaveGeneration.add_tilemap($TileMap, room, x * tilemap_width, y * tilemap_height)
+	# var room = $CaveGeneration.generate(tilemap_width, tilemap_height)
+	# $CaveGeneration.add_tilemap($TileMap, room, x * tilemap_width, y * tilemap_height)
 
 func create_room_doors(room, level, x, y):
 	var north = check_pos(x, y - 1) && level[y - 1][x] == 1

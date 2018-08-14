@@ -71,10 +71,11 @@ _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "
 
 [node name="Cursor" type="Node2D" index="0"]
 
+pause_mode = 2
 z_index = 4096
 z_as_relative = false
 script = ExtResource( 1 )
-_sections_unfolded = [ "Visibility", "Z Index" ]
+_sections_unfolded = [ "Pause", "Visibility", "Z Index" ]
 
 [node name="Underfire" type="Particles2D" parent="." index="0"]
 
@@ -132,7 +133,7 @@ _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Trans
 [node name="Timer" type="Timer" parent="." index="3"]
 
 process_mode = 1
-wait_time = 3.0
+wait_time = 1.0
 one_shot = true
 autostart = false
 

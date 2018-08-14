@@ -3,7 +3,7 @@ extends Area2D
 var cooldown = 0.2
 var speed = 200
 var spread = 5
-var damage = 2
+var damage = .1
 var penetration = 0
 var life = 1
 var cost = 0.02
