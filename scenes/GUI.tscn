@@ -1,17 +1,19 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/scripts/Gui.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/map/room.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/player/spr_heart_1.png" type="Texture" id=3]
-[ext_resource path="res://assets/scripts/engine/Pause.gd" type="Script" id=4]
-[ext_resource path="res://assets/fonts/hover.tres" type="StyleBox" id=5]
-[ext_resource path="res://assets/fonts/pressed.tres" type="StyleBox" id=6]
-[ext_resource path="res://assets/fonts/focus.tres" type="StyleBox" id=7]
-[ext_resource path="res://assets/fonts/normal.tres" type="StyleBox" id=8]
-[ext_resource path="res://assets/fonts/tiny.tres" type="DynamicFont" id=9]
-[ext_resource path="res://assets/fonts/PauseGroup.tres" type="ButtonGroup" id=10]
-[ext_resource path="res://scenes/Cursor.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/sprites/map/empty_room.png" type="Texture" id=12]
+[ext_resource path="res://assets/scripts/engine/Title.gd" type="Script" id=4]
+[ext_resource path="res://assets/sprites/spr_title_0.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/hover.tres" type="StyleBox" id=6]
+[ext_resource path="res://assets/fonts/pressed.tres" type="StyleBox" id=7]
+[ext_resource path="res://assets/fonts/focus.tres" type="StyleBox" id=8]
+[ext_resource path="res://assets/fonts/normal.tres" type="StyleBox" id=9]
+[ext_resource path="res://assets/fonts/tiny.tres" type="DynamicFont" id=10]
+[ext_resource path="res://assets/fonts/PauseGroup.tres" type="ButtonGroup" id=11]
+[ext_resource path="res://assets/scripts/engine/Pause.gd" type="Script" id=12]
+[ext_resource path="res://scenes/Cursor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/sprites/map/empty_room.png" type="Texture" id=14]
 
 [node name="GUI" type="Control" index="0"]
 
@@ -40,7 +42,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Minimap" type="GridContainer" parent="Player" index="0"]
 
-visible = false
 anchor_left = 1.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -211,18 +212,17 @@ rounded = false
 percent_visible = false
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="PauseLayer" type="CanvasLayer" parent="." index="1"]
+[node name="Title" type="CanvasLayer" parent="." index="1"]
 
 layer = 100
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-_sections_unfolded = [ "Pause" ]
 
-[node name="Pause" type="Control" parent="PauseLayer" index="0"]
+[node name="Menu" type="Control" parent="Title" index="0"]
 
-visible = false
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -236,7 +236,7 @@ size_flags_vertical = 1
 script = ExtResource( 4 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="ColorRect" type="ColorRect" parent="PauseLayer/Pause" index="0"]
+[node name="Background" type="ColorRect" parent="Title/Menu" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -250,7 +250,207 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 0.313726 )
 
-[node name="Buttons" type="VBoxContainer" parent="PauseLayer/Pause" index="1"]
+[node name="Boxes" type="VBoxContainer" parent="Title/Menu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_right = 160.0
+margin_bottom = 108.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 1
+alignment = 1
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="TextureRect" type="TextureRect" parent="Title/Menu/Boxes" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 8.0
+margin_right = 128.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Center" type="CenterContainer" parent="Title/Menu/Boxes" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 60.0
+margin_right = 128.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="Buttons" type="VBoxContainer" parent="Title/Menu/Boxes/Center" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 38.0
+margin_right = 90.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 52, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 8
+alignment = 1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="Play" type="Button" parent="Title/Menu/Boxes/Center/Buttons" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 52.0
+margin_bottom = 8.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = ExtResource( 11 )
+text = "Play"
+flat = false
+align = 1
+
+[node name="Options" type="Button" parent="Title/Menu/Boxes/Center/Buttons" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 16.0
+margin_right = 52.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = ExtResource( 11 )
+text = "Options"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_styles" ]
+
+[node name="Quit" type="Button" parent="Title/Menu/Boxes/Center/Buttons" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 32.0
+margin_right = 52.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = ExtResource( 11 )
+text = "Quit"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_styles" ]
+
+[node name="Pause" type="CanvasLayer" parent="." index="2"]
+
+layer = 100
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="Menu" type="Control" parent="Pause" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 12 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="Background" type="ColorRect" parent="Pause/Menu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0.313726 )
+
+[node name="Buttons" type="VBoxContainer" parent="Pause/Menu" index="1"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -271,7 +471,7 @@ custom_constants/separation = 8
 alignment = 0
 _sections_unfolded = [ "Margin", "Rect", "custom_constants" ]
 
-[node name="Resume" type="Button" parent="PauseLayer/Pause/Buttons" index="0"]
+[node name="Resume" type="Button" parent="Pause/Menu/Buttons" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -286,20 +486,20 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = ExtResource( 5 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 7 )
-custom_styles/normal = ExtResource( 8 )
-custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-group = ExtResource( 10 )
+group = ExtResource( 11 )
 text = "Resume"
 flat = false
 align = 1
 
-[node name="Options" type="Button" parent="PauseLayer/Pause/Buttons" index="1"]
+[node name="Options" type="Button" parent="Pause/Menu/Buttons" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -315,21 +515,21 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = ExtResource( 5 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 7 )
-custom_styles/normal = ExtResource( 8 )
-custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-group = ExtResource( 10 )
+group = ExtResource( 11 )
 text = "Options"
 flat = false
 align = 1
 _sections_unfolded = [ "custom_styles" ]
 
-[node name="Quit" type="Button" parent="PauseLayer/Pause/Buttons" index="2"]
+[node name="Quit" type="Button" parent="Pause/Menu/Buttons" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -345,32 +545,33 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = ExtResource( 5 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 7 )
-custom_styles/normal = ExtResource( 8 )
-custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-group = ExtResource( 10 )
+group = ExtResource( 11 )
 text = "Quit"
 flat = false
 align = 1
 _sections_unfolded = [ "custom_styles" ]
 
-[node name="Cursor" type="CanvasLayer" parent="." index="2"]
+[node name="Cursor" type="CanvasLayer" parent="." index="3"]
 
-editor/display_folded = true
 layer = 101
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Cursor" parent="Cursor" index="0" instance=ExtResource( 11 )]
+[node name="Cursor" parent="Cursor" index="0" instance=ExtResource( 13 )]
 
-[node name="Hearts" type="Node2D" parent="." index="3"]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="Hearts" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
 visible = false
@@ -395,7 +596,7 @@ texture = ExtResource( 3 )
 stretch_mode = 6
 _sections_unfolded = [ "Grow Direction", "Margin", "Rect", "Visibility" ]
 
-[node name="Rooms" type="Node2D" parent="." index="4"]
+[node name="Rooms" type="Node2D" parent="." index="5"]
 
 editor/display_folded = true
 visible = false
@@ -415,7 +616,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 stretch_mode = 0
 _sections_unfolded = [ "Margin" ]
 
