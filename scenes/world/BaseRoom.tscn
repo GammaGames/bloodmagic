@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/scripts/world/BaseRoom.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/tilesets/cave.tres" type="TileSet" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -68,7 +67,7 @@ points = PoolVector2Array( 0, 48, 6, 48, 6, 68, 0, 68 )
 custom_solver_bias = 0.0
 extents = Vector2( 96, 52 )
 
-[node name="BaseRoom" type="Area2D" index="0"]
+[node name="BaseRoom" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -82,31 +81,7 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="TileMap" type="TileMap" parent="." index="0"]
-
-visible = false
-position = Vector2( 8, 8 )
-z_as_relative = false
-mode = 0
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( -1, 0, 1, -65536, 0, 196610, -65535, 0, 196610, -65534, 0, 196610, -65533, 0, 196610, -65532, 0, 196611, -65529, 0, 196609, -65528, 0, 196610, -65527, 0, 196610, -65526, 0, 196610, -65525, 0, 196610, -65524, 0, 3, 65535, 0, 65536, 12, 0, 65536, 131071, 0, 131072, 65548, 0, 131072, 262143, 0, 0, 196620, 0, 0, 327679, 0, 65536, 262156, 0, 65536, 393215, 0, 65536, 327692, 0, 65536, 458751, 0, 131073, 393216, 0, 196610, 393217, 0, 196610, 393218, 0, 196610, 393219, 0, 196610, 393220, 0, 196611, 393223, 0, 196609, 393224, 0, 196610, 393225, 0, 196610, 393226, 0, 196610, 393227, 0, 196610, 393228, 0, 131075 )
-_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
-
-[node name="ltl" type="StaticBody2D" parent="." index="1"]
+[node name="ltl" type="StaticBody2D" parent="." index="0"]
 
 editor/display_folded = true
 input_pickable = false
@@ -121,7 +96,7 @@ bounce = 0.0
 
 shape = SubResource( 1 )
 
-[node name="ttl" type="StaticBody2D" parent="." index="2"]
+[node name="ttl" type="StaticBody2D" parent="." index="1"]
 
 editor/display_folded = true
 input_pickable = false
@@ -137,7 +112,7 @@ _sections_unfolded = [ "Collision" ]
 
 shape = SubResource( 2 )
 
-[node name="TopDoor" type="StaticBody2D" parent="." index="3" groups=[
+[node name="TopDoor" type="StaticBody2D" parent="." index="2" groups=[
 "doors",
 ]]
 
@@ -157,7 +132,7 @@ modulate = Color( 0.230469, 1, 0.2966, 1 )
 shape = SubResource( 3 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="ttr" type="StaticBody2D" parent="." index="4"]
+[node name="ttr" type="StaticBody2D" parent="." index="3"]
 
 editor/display_folded = true
 input_pickable = false
@@ -172,7 +147,7 @@ bounce = 0.0
 
 shape = SubResource( 4 )
 
-[node name="rtr" type="StaticBody2D" parent="." index="5"]
+[node name="rtr" type="StaticBody2D" parent="." index="4"]
 
 editor/display_folded = true
 input_pickable = false
@@ -187,10 +162,11 @@ bounce = 0.0
 
 shape = SubResource( 5 )
 
-[node name="RightDoor" type="StaticBody2D" parent="." index="6" groups=[
+[node name="RightDoor" type="StaticBody2D" parent="." index="5" groups=[
 "doors",
 ]]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -205,7 +181,7 @@ modulate = Color( 0.230469, 1, 0.2966, 1 )
 shape = SubResource( 6 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="rbr" type="StaticBody2D" parent="." index="7"]
+[node name="rbr" type="StaticBody2D" parent="." index="6"]
 
 editor/display_folded = true
 input_pickable = false
@@ -220,7 +196,7 @@ bounce = 0.0
 
 shape = SubResource( 7 )
 
-[node name="brb" type="StaticBody2D" parent="." index="8"]
+[node name="brb" type="StaticBody2D" parent="." index="7"]
 
 editor/display_folded = true
 input_pickable = false
@@ -236,7 +212,7 @@ bounce = 0.0
 shape = SubResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BottomDoor" type="StaticBody2D" parent="." index="9" groups=[
+[node name="BottomDoor" type="StaticBody2D" parent="." index="8" groups=[
 "doors",
 ]]
 
@@ -256,7 +232,7 @@ modulate = Color( 0.230469, 1, 0.2966, 1 )
 shape = SubResource( 9 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="blb" type="StaticBody2D" parent="." index="10"]
+[node name="blb" type="StaticBody2D" parent="." index="9"]
 
 editor/display_folded = true
 input_pickable = false
@@ -271,7 +247,7 @@ bounce = 0.0
 
 shape = SubResource( 10 )
 
-[node name="lbl" type="StaticBody2D" parent="." index="11"]
+[node name="lbl" type="StaticBody2D" parent="." index="10"]
 
 editor/display_folded = true
 input_pickable = false
@@ -286,7 +262,7 @@ bounce = 0.0
 
 shape = SubResource( 11 )
 
-[node name="LeftDoor" type="StaticBody2D" parent="." index="12" groups=[
+[node name="LeftDoor" type="StaticBody2D" parent="." index="11" groups=[
 "doors",
 ]]
 
@@ -306,7 +282,7 @@ modulate = Color( 0.230469, 1, 0.2966, 1 )
 shape = SubResource( 12 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="13"]
+[node name="RoomArea" type="CollisionShape2D" parent="." index="12"]
 
 visible = false
 modulate = Color( 0, 0.0247192, 0.632812, 1 )
@@ -314,6 +290,6 @@ position = Vector2( 104, 64 )
 shape = SubResource( 13 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Node2D" type="Node2D" parent="." index="14"]
+[node name="Items" type="Node2D" parent="." index="13"]
 
 

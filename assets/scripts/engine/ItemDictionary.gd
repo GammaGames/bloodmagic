@@ -1,10 +1,16 @@
 extends Node
 
-onready var weapons = [
+var weapons = [
 	"PeaShooter",
 	"Rail",
 	"Shotty",
 	"Stream"
+]
+
+var chunks = [
+	"Chunk1",
+	"Chunk2",
+	"Chunk3"
 ]
 
 func get_weapon(weapon=""):
