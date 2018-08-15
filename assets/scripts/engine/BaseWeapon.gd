@@ -8,6 +8,8 @@ var penetration = 0
 var life = 1
 var cost = 0.02
 var player
+var minCount = 1
+var maxCount = 1
 
 func _ready():
     add_to_group("item")
@@ -17,7 +19,10 @@ func _ready():
 
 func shoot(dir, items):
     if $Timer.time_left == 0:
-        var count = randi() % 5 + 10
+        var count = 1
+        if minCount != 1 and maxCount != 1:
+            count = randi() % minCount + (maxCount - minCount)
+        print(count)
         var spread_angle = deg2rad(spread / count)
         for i in range(0, count):
             var bullet = $Bullet.duplicate()

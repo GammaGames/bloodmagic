@@ -7,3 +7,5 @@ func _init():
     damage = 1
     life = 0.5
     cost = 0.1
+    minCount = 5
+    maxCount = 10
