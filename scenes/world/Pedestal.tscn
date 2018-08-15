@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/world/Grave.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/objects/pedistal.png" type="Texture" id=2]
+[ext_resource path="res://scenes/weapons/PeaShooter.tscn" type="PackedScene" id=3]
 
 [node name="Pedestal" instance=ExtResource( 1 )]
 
@@ -12,5 +13,9 @@ texture = ExtResource( 2 )
 [node name="LightOccluder2D" parent="." index="2"]
 
 visible = false
+
+[node name="BaseWeapon" parent="." index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 0, -9 )
 
 

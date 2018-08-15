@@ -22,7 +22,6 @@ func shoot(dir, items):
         var count = 1
         if minCount != 1 and maxCount != 1:
             count = randi() % minCount + (maxCount - minCount)
-        print(count)
         var spread_angle = deg2rad(spread / count)
         for i in range(0, count):
             var bullet = $Bullet.duplicate()
