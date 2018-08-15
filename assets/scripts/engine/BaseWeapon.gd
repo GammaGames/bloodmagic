@@ -4,7 +4,7 @@ var cooldown = 0.2
 var speed = 200
 var spread = 5
 var damage = .1
-var penetration = 0
+# var penetration = 0
 var life = 1
 var cost = 0.02
 var player
@@ -26,7 +26,7 @@ func shoot(dir, items):
         var spread_angle = deg2rad(spread / count)
         for i in range(0, count):
             var bullet = $Bullet.duplicate()
-            bullet.shoot(dir - (count / 2 - i) * spread_angle, speed * rand_range(0.9, 1), damage, life, penetration)
+            bullet.shoot(dir - (count / 2 - i) * spread_angle, speed * rand_range(0.9, 1), damage, life)
             bullet.global_position = global_position
             $"/root".add_child(bullet)
 

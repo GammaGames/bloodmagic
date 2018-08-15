@@ -5,6 +5,6 @@ func _init():
     speed = 0
     spread = 0
     damage = 2
-    penetration = 10
+    # penetration = 10
     life = 0.09
     cost = 0.01
