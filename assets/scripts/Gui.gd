@@ -23,7 +23,7 @@ func set_health(health):
     progress.value = extra
 
 func set_minimap(map):
-    var minimap = $Player/Minimap
+    var minimap = $Minimap/Grid
     for node in minimap.get_children():
         node.queue_free()
     minimap.columns = map[0].size()

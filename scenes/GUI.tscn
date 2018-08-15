@@ -2,9 +2,9 @@
 
 [ext_resource path="res://assets/scripts/Gui.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/map/room.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/player/spr_heart_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/player/heart_1.png" type="Texture" id=3]
 [ext_resource path="res://assets/scripts/engine/Title.gd" type="Script" id=4]
-[ext_resource path="res://assets/sprites/spr_title_0.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/title.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/hover.tres" type="StyleBox" id=6]
 [ext_resource path="res://assets/fonts/pressed.tres" type="StyleBox" id=7]
 [ext_resource path="res://assets/fonts/focus.tres" type="StyleBox" id=8]
@@ -14,6 +14,9 @@
 [ext_resource path="res://assets/scripts/engine/Pause.gd" type="Script" id=12]
 [ext_resource path="res://scenes/Cursor.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/sprites/map/empty_room.png" type="Texture" id=14]
+
+
+
 
 [sub_resource type="Animation" id=1]
 
@@ -26,12 +29,12 @@ tracks/0/path = NodePath("Menu/Boxes/Container/Node2D:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9, 1.7, 2.8, 4.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 4.4 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -5 ), Vector2( -5, -10 ), Vector2( 0, -3 ), Vector2( 0, 0 ), Vector2( 0, -5 ) ]
+"values": [ Vector2( 0, -5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Menu/Boxes/Container/Node2D:rotation_degrees")
@@ -55,7 +58,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.9, 1.7, 2.8, 4.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
 }
 
 [node name="GUI" type="Control" index="0"]
@@ -74,7 +77,7 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="Player" type="CanvasLayer" parent="." index="0"]
+[node name="Minimap" type="CanvasLayer" parent="." index="0"]
 
 editor/display_folded = true
 layer = 1
@@ -83,7 +86,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Minimap" type="GridContainer" parent="Player" index="0"]
+[node name="Grid" type="GridContainer" parent="Minimap" index="0"]
 
 anchor_left = 1.0
 anchor_top = 0.0
@@ -104,7 +107,7 @@ custom_constants/hseparation = 0
 columns = 5
 _sections_unfolded = [ "Rect", "custom_constants" ]
 
-[node name="BaseRoom" type="TextureRect" parent="Player/Minimap" index="0"]
+[node name="BaseRoom" type="TextureRect" parent="Minimap/Grid" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -123,7 +126,16 @@ texture = ExtResource( 2 )
 stretch_mode = 0
 _sections_unfolded = [ "Margin" ]
 
-[node name="Health" type="Control" parent="Player" index="1"]
+[node name="Player" type="CanvasLayer" parent="." index="1"]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Health" type="Control" parent="Player" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -255,8 +267,9 @@ rounded = false
 percent_visible = false
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="Title" type="CanvasLayer" parent="." index="1"]
+[node name="Title" type="CanvasLayer" parent="." index="2"]
 
+editor/display_folded = true
 layer = 100
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -266,6 +279,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 [node name="Menu" type="Control" parent="Title" index="0"]
 
 pause_mode = 2
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -331,10 +345,13 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Node2D" type="Node2D" parent="Title/Menu/Boxes/Container" index="0"]
 
-position = Vector2( 0.32473, -1.12199 )
-rotation = -0.0470722
-scale = Vector2( 1.04095, 1.04095 )
+position = Vector2( 64.8259, 27.1494 )
+rotation = 0.0872665
+scale = Vector2( 1.1, 1.1 )
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="TextureRect" type="TextureRect" parent="Title/Menu/Boxes/Container/Node2D" index="0"]
 
@@ -342,9 +359,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 4.0
-margin_right = 128.0
-margin_bottom = 52.0
+margin_left = -61.0
+margin_top = -26.0
+margin_right = 67.0
+margin_bottom = 22.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -491,7 +509,7 @@ anims/Logo = SubResource( 1 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="Pause" type="CanvasLayer" parent="." index="2"]
+[node name="Pause" type="CanvasLayer" parent="." index="3"]
 
 editor/display_folded = true
 layer = 100
@@ -640,7 +658,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "custom_styles" ]
 
-[node name="Cursor" type="CanvasLayer" parent="." index="3"]
+[node name="Cursor" type="CanvasLayer" parent="." index="4"]
 
 editor/display_folded = true
 layer = 101
@@ -653,7 +671,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 modulate = Color( 1, 1, 1, 0 )
 
-[node name="Hearts" type="Node2D" parent="." index="4"]
+[node name="Hearts" type="Node2D" parent="." index="5"]
 
 editor/display_folded = true
 visible = false
@@ -678,7 +696,7 @@ texture = ExtResource( 3 )
 stretch_mode = 6
 _sections_unfolded = [ "Grow Direction", "Margin", "Rect", "Visibility" ]
 
-[node name="Rooms" type="Node2D" parent="." index="5"]
+[node name="Rooms" type="Node2D" parent="." index="6"]
 
 editor/display_folded = true
 visible = false

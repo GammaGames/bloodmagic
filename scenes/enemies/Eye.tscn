@@ -2,8 +2,9 @@
 
 [ext_resource path="res://assets/scripts/enemies/Eye.gd" type="Script" id=1]
 [ext_resource path="res://assets/shaders/hue_shift.shader" type="Shader" id=2]
-[ext_resource path="res://assets/sprites/enemies/spr_eye_0.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/enemies/eye.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/particles/eye_particles.png" type="Texture" id=4]
+
 
 [sub_resource type="OccluderPolygon2D" id=1]
 

@@ -1,6 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/sprites/objects/spr_grave_1.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/objects/grabe_2.png" type="Texture" id=1]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 

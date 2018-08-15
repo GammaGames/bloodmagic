@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	pause()
+	# pause()
 	$Boxes/Center/Buttons/Play.connect("pressed", self, "play")
 	$Boxes/Center/Buttons/Quit.connect("pressed", self, "quit")
 
