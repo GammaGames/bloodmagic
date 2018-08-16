@@ -69,7 +69,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Scale", "Spread" ]
 
-[node name="Cursor" type="Node2D" index="0"]
+[node name="Cursor" type="Node2D"]
 
 pause_mode = 2
 z_index = 4096

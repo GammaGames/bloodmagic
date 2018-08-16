@@ -31,5 +31,9 @@ func set_minimap(map):
         for x in range(0, map[y].size()):
             if map[y][x] == 1:
                 minimap.add_child($Rooms/BaseRoom.duplicate())
+            elif map[y][x] == 2:
+                minimap.add_child($Rooms/TreasureRoom.duplicate())
+            elif map[y][x] == 3:
+                minimap.add_child($Rooms/BossRoom.duplicate())
             else:
                 minimap.add_child($Rooms/EmptyRoom.duplicate())

@@ -8,6 +8,7 @@ var tilemap_height = 8
 
 onready var base_room = preload("res://scenes/world/BaseRoom.tscn")
 onready var treasure_room = preload("res://scenes/world/TreasureRoom.tscn")
+onready var boss_room = preload("res://scenes/world/BossRoom.tscn")
 
 func _ready():
 	randomize()
@@ -46,6 +47,14 @@ func fill_level(width, height):
 		x = clamp(x, 0, width - 1)
 		y = clamp(y, 0, height - 1)
 
+	var possible = get_outline(level)
+	var pos = possible[randi() % possible.size()]
+	level[pos.y][pos.x] = 2
+
+	possible = get_outline(level)
+	pos = possible[randi() % possible.size()]
+	level[pos.y][pos.x] = 3
+
 	return level
 
 func check_level(level, percent):
@@ -64,14 +73,28 @@ func get_level_string(level):
 		m += "\n"
 	return m
 
+func get_outline(level):
+	var possible = []
+	for y in range(level.size()):
+		for x in range(level.size()):
+			var count = 0
+			count += int(check_pos(x, y - 1) && level[y - 1][x] != 0)
+			count += int(check_pos(x + 1, y) && level[y][x + 1] != 0)
+			count += int(check_pos(x, y + 1) && level[y + 1][x] != 0)
+			count += int(check_pos(x - 1, y) && level[y][x - 1] != 0)
+			if count == 1 && level[y][x] != 2:
+				possible.append(Vector2(x, y))
+	return possible
+
 func create_rooms(level):
 	for y in range(0, level.size()):
 		for x in range(0, level[y].size()):
 			if level[y][x] == 1:
-				create_treasure_room(x, y, level)
-				# create_room(x, y, level)
+				create_room(x, y, level)
 			elif level[y][x] == 2:
 				create_treasure_room(x, y, level)
+			elif level[y][x] == 3:
+				create_boss_room(x, y, level)
 	$TileMap.update_bitmask_region(Vector2(-1, -1), Vector2(width * tilemap_width + 1, height * tilemap_height + 1))
 
 func create_room(x, y, level):
@@ -84,19 +107,20 @@ func create_room(x, y, level):
 
 func create_treasure_room(x, y, level):
 	var room = treasure_room.instance()
-	print(room.find_node("Sprite"))
 	$"../Overworld".add_child(room)
-	# var weapon = ItemDictionary.get_weapon()
-	# room.set_item(weapon)
+	var weapon = ItemDictionary.get_weapon()
+	room.set_item(weapon)
 	room.global_position = Vector2(x * 208, y * 128)
 
 	create_room_walls(level, x, y)
 	create_room_doors(room, level, x, y)
-	pass
 
-func create_boss_room(x, y):
-	# TODO
-	pass
+func create_boss_room(x, y, level):
+	var room = boss_room.instance()
+	$"../Overworld".add_child(room)
+
+	create_room_walls(level, x, y)
+	create_room_doors(room, level, x, y)
 
 func create_room_walls(level, x, y):
 	var offset_x = x * tilemap_width - 1
@@ -114,10 +138,10 @@ func create_room_walls(level, x, y):
 	# $CaveGeneration.add_tilemap($TileMap, room, x * tilemap_width, y * tilemap_height)
 
 func create_room_doors(room, level, x, y):
-	var north = check_pos(x, y - 1) && level[y - 1][x] == 1
-	var east = check_pos(x + 1, y) && level[y][x + 1] == 1
-	var south = check_pos(x, y + 1) && level[y + 1][x] == 1
-	var west = check_pos(x - 1, y) && level[y][x - 1] == 1
+	var north = check_pos(x, y - 1) && level[y - 1][x] != 0
+	var east = check_pos(x + 1, y) && level[y][x + 1] != 0
+	var south = check_pos(x, y + 1) && level[y + 1][x] != 0
+	var west = check_pos(x - 1, y) && level[y][x - 1] != 0
 
 	var offset_x = x * tilemap_width - 1
 	var offset_y = y * tilemap_height - 1

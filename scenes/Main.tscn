@@ -1,16 +1,12 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/LevelGeneration.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprites/tilesets/cave_floor.tres" type="TileSet" id=4]
-[ext_resource path="res://scenes/world/Well.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/world/Grave.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/world/Torch.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/world/Pillar.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/scripts/Camera2D.gd" type="Script" id=10]
-[ext_resource path="res://assets/sprites/particles/bokeh.png" type="Texture" id=11]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/scripts/Camera2D.gd" type="Script" id=6]
+[ext_resource path="res://assets/sprites/particles/bokeh.png" type="Texture" id=7]
 
 [sub_resource type="Gradient" id=1]
 
@@ -63,7 +59,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Scale" ]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -100,30 +96,12 @@ _sections_unfolded = [ "Cell", "Transform" ]
 
 sort_enabled = true
 
-[node name="Well" parent="World" index="0" instance=ExtResource( 5 )]
+[node name="Player" parent="World" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( 64, 208 )
-
-[node name="Grave" parent="World" index="1" instance=ExtResource( 6 )]
-
-position = Vector2( 50, 80 )
-
-[node name="Torch" parent="World" index="2" instance=ExtResource( 7 )]
-
-position = Vector2( 272, 208 )
-
-[node name="Pillar" parent="World" index="3" instance=ExtResource( 8 )]
-
-position = Vector2( 336, 48 )
-
-[node name="Player" parent="World" index="4" instance=ExtResource( 9 )]
-
-position = Vector2( 288, 176 )
+position = Vector2( 304, 160 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "collision" ]
 
 [node name="Overworld" type="Node2D" parent="." index="4"]
-
-visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
 
@@ -149,8 +127,11 @@ drag_margin_bottom = 0.0
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true
-script = ExtResource( 10 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Drag Margin", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Particles2D" type="Particles2D" parent="Camera2D" index="0"]
 
@@ -171,7 +152,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 3 )
-texture = ExtResource( 11 )
+texture = ExtResource( 7 )
 normal_map = null
 h_frames = 3
 v_frames = 1

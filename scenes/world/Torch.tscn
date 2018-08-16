@@ -70,7 +70,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Initial Velocity", "Spread" ]
 
-[node name="Torch" index="0" instance=ExtResource( 1 )]
+[node name="Torch" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
