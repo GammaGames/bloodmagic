@@ -326,4 +326,6 @@ position = Vector2( 104, 64 )
 shape = SubResource( 13 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
+[node name="Items" type="Node2D" parent="." index="13"]
+
 
