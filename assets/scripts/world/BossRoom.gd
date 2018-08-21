@@ -1,8 +1,7 @@
 extends "res://assets/scripts/world/BaseRoom.gd"
 
-func _ready():
-	$Area.connect("body_shape_entered", self, "_on_body_shape_entered")
-	print("BOSS")
+# func _ready():
+	# $Area.connect("body_shape_entered", self, "_on_body_shape_entered")
 
 func set_boss(boss):
 	pass
