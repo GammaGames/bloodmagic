@@ -6,6 +6,3 @@ func set_item(item):
 	old.queue_free()
 	$Items/Pedestal.add_child(item)
 	item.global_position = pos
-
-func get_items():
-	return $Items.get_children()

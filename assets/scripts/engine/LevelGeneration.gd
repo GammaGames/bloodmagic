@@ -13,6 +13,7 @@ onready var boss_room = preload("res://scenes/world/BossRoom.tscn")
 func _ready():
 	randomize()
 	var level = generate(width, height)
+	print(get_level_string(level))
 	create_rooms(level)
 	$"../Gui".set_minimap(level)
 
@@ -99,7 +100,10 @@ func create_rooms(level):
 
 func create_room(x, y, level):
 	var room = base_room.instance()
+	var items = room.get_items()
 	$"../Overworld".add_child(room)
+	for node in items:
+		$"../World".add_child(node)
 	room.global_position = Vector2(x * 208, y * 128)
 
 	create_room_walls(level, x, y)
@@ -118,6 +122,7 @@ func create_treasure_room(x, y, level):
 func create_boss_room(x, y, level):
 	var room = boss_room.instance()
 	$"../Overworld".add_child(room)
+	room.global_position = Vector2(x * 208, y * 128)
 
 	create_room_walls(level, x, y)
 	create_room_doors(room, level, x, y)

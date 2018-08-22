@@ -311,6 +311,7 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Area" type="Area2D" parent="." index="12"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -321,6 +322,7 @@ audio_bus_name = "Master"
 
 [node name="Shape" type="CollisionShape2D" parent="Area" index="0"]
 
+visible = false
 modulate = Color( 0, 0.0247192, 0.632812, 1 )
 position = Vector2( 104, 64 )
 shape = SubResource( 13 )
