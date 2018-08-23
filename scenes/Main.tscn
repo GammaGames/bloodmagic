@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/LevelGeneration.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprites/tilesets/cave_floor.tres" type="TileSet" id=4]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/scripts/Camera2D.gd" type="Script" id=6]
-[ext_resource path="res://assets/sprites/particles/bokeh.png" type="Texture" id=7]
+[ext_resource path="res://scenes/enemies/Eye.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/scripts/Camera2D.gd" type="Script" id=7]
+[ext_resource path="res://assets/sprites/particles/bokeh.png" type="Texture" id=8]
 
 [sub_resource type="Gradient" id=1]
 
@@ -101,6 +102,10 @@ sort_enabled = true
 position = Vector2( 304, 160 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "collision" ]
 
+[node name="Eye" parent="World" index="1" instance=ExtResource( 6 )]
+
+position = Vector2( 240, 160 )
+
 [node name="Overworld" type="Node2D" parent="." index="4"]
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
@@ -127,9 +132,10 @@ drag_margin_bottom = 0.0
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 _sections_unfolded = [ "Drag Margin", "Transform" ]
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 
@@ -152,7 +158,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 3 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 normal_map = null
 h_frames = 3
 v_frames = 1

@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/scripts/enemies/Eye.gd" type="Script" id=1]
 [ext_resource path="res://assets/shaders/hue_shift.shader" type="Shader" id=2]
 [ext_resource path="res://assets/sprites/enemies/eye.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/particles/eye_particles.png" type="Texture" id=4]
-
 
 [sub_resource type="OccluderPolygon2D" id=1]
 
@@ -81,11 +80,6 @@ anim_offset_random = 1.0
 anim_loop = false
 _sections_unfolded = [ "Angle" ]
 
-[sub_resource type="CircleShape2D" id=8]
-
-custom_solver_bias = 0.0
-radius = 8.0
-
 [node name="Eye" type="KinematicBody2D"]
 
 input_pickable = false
@@ -109,7 +103,6 @@ _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-visible = false
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
@@ -169,23 +162,5 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
-
-[node name="Hitbox" type="Area2D" parent="." index="8"]
-
-visible = false
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 4
-collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
-
-shape = SubResource( 8 )
 
 

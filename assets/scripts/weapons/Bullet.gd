@@ -24,8 +24,7 @@ func _process(delta):
     if life != null:
         life -= delta
         if life < 0:
-            disable()
-            queue_free()
+            remove()
 
         var velocity = Vector2()
         velocity.x = cos(direction) * speed
@@ -41,7 +40,8 @@ func _process(delta):
 
 func _on_body_shape_entered(body_id, body, body_shape, self_shape):
     if body.is_in_group("enemy"):
-        body.hurt(damage)
+        body.hurt(self)
+        remove()
         # penetration -= 1
     # if body.is_in_group("world"):
     #     penetration -= 1
@@ -55,3 +55,7 @@ func disable():
 func enable():
     add_to_group("bullet")
     connect("body_shape_entered", self, "_on_body_shape_entered")
+
+func remove():
+    disable()
+    queue_free()

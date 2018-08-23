@@ -35,9 +35,6 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

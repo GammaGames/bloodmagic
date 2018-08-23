@@ -484,20 +484,21 @@ playback/speed = 1.0
 
 [node name="Hitbox" type="Area2D" parent="." index="8"]
 
-visible = false
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 collision_layer = 2
-collision_mask = 4
+collision_mask = 5
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 
+visible = false
 shape = SubResource( 17 )
 _sections_unfolded = [ "Transform" ]
 

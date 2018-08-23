@@ -39,7 +39,7 @@ func post_shoot(frequency, amplitude, dir):
     player.post_shoot(frequency, amplitude, dir)
 
 func _on_body_shape_entered(body_id, body, body_shape, self_shape):
-    if body.name == "Player":
+    if body.is_in_group("player"):
         player = body
         body.call_deferred("change_weapon", self)
         disconnect("body_shape_entered", self, "_on_body_shape_entered")

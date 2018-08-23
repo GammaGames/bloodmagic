@@ -20,6 +20,7 @@ func _ready():
     health = 3.5
     change_weapon(ItemDictionary.load_weapon("PeaShooter"))
     update_gui()
+    $Hitbox.connect("body_shape_entered", self, "_on_body_shape_entered")
     $ShootParticles/Timer.connect("timeout", self, "stop_particles")
     $Hitstun.connect("tween_started", self, "start_knockback")
     $Hitstun.connect("tween_completed", self, "end_knockback")
@@ -77,14 +78,23 @@ func heal(item):
     health += item.amount
     update_gui()
 
+func _on_body_shape_entered(body_id, body, body_shape, area_shape):
+    if body.is_in_group("damage"):
+        if body.is_in_group("enemy"):
+            hurt(body)
+        elif body.is_in_group("world"):
+            hurt(body)
+    if body.is_in_group("world") and body.has_method("use"):
+        body.use(self)
+
 func hurt(item):
     if !hitstun:
-        knock_dir = transform.origin - item.transform.origin
+        knock_dir = global_position - item.global_position
         knock_speed = 250
         $HurtParticles.rotation = knock_dir.angle() - PI
         $HurtParticles.restart()
 
-        $Hitstun.interpolate_property(self, "knock_speed", knock_speed, 200, 0.3, Tween.TRANS_QUART, Tween.EASE_OUT)
+        $Hitstun.interpolate_property(self, "knock_speed", knock_speed, 100, 0.2, Tween.TRANS_QUART, Tween.EASE_OUT)
         $Hitstun.start()
 
         health -= item.damage
